@@ -1,0 +1,255 @@
+{
+	"type": "excalidraw",
+	"version": 2,
+	"source": "https://github.com/zsviczian/obsidian-excalidraw-plugin/releases/tag/2.16.1",
+	"elements": [
+		{
+			"id": "tzvGPrCY3NCuW94dNKOjG",
+			"type": "rectangle",
+			"x": -268.1171875,
+			"y": -186.24609375,
+			"width": 473.265625,
+			"height": 203.9296875,
+			"angle": 0,
+			"strokeColor": "#1e1e1e",
+			"backgroundColor": "#ffc9c9",
+			"fillStyle": "solid",
+			"strokeWidth": 2,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"index": "a0",
+			"roundness": {
+				"type": 3
+			},
+			"seed": 1669843458,
+			"version": 61,
+			"versionNonce": 138240734,
+			"isDeleted": false,
+			"boundElements": null,
+			"updated": 1762123659275,
+			"link": null,
+			"locked": false
+		},
+		{
+			"id": "4cfj-dMXZP7DhFvVUToU7",
+			"type": "diamond",
+			"x": -115.3125,
+			"y": -280.09375,
+			"width": 177.48046875,
+			"height": 156.4296875,
+			"angle": 0,
+			"strokeColor": "#f08c00",
+			"backgroundColor": "#ffec99",
+			"fillStyle": "solid",
+			"strokeWidth": 2,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"index": "a1",
+			"roundness": {
+				"type": 2
+			},
+			"seed": 2058465730,
+			"version": 111,
+			"versionNonce": 749616002,
+			"isDeleted": false,
+			"boundElements": null,
+			"updated": 1762123667412,
+			"link": null,
+			"locked": false
+		},
+		{
+			"id": "pRnz58fgl9xTKLzWZcieW",
+			"type": "line",
+			"x": -325.78515625,
+			"y": 102.73046875,
+			"width": 668.9375,
+			"height": 1.74609375,
+			"angle": 0,
+			"strokeColor": "#2f9e44",
+			"backgroundColor": "#ffec99",
+			"fillStyle": "solid",
+			"strokeWidth": 4,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"index": "a2",
+			"roundness": {
+				"type": 2
+			},
+			"seed": 404716354,
+			"version": 203,
+			"versionNonce": 1311643842,
+			"isDeleted": false,
+			"boundElements": null,
+			"updated": 1762123680902,
+			"link": null,
+			"locked": false,
+			"points": [
+				[
+					0,
+					0
+				],
+				[
+					668.9375,
+					1.74609375
+				]
+			],
+			"lastCommittedPoint": null,
+			"startBinding": null,
+			"endBinding": null,
+			"startArrowhead": null,
+			"endArrowhead": null,
+			"polygon": false
+		},
+		{
+			"id": "jJ0UOpPEk1SpPCnfgPUkb",
+			"type": "line",
+			"x": -325.78515625,
+			"y": 77.15625,
+			"width": 668.9375,
+			"height": 1.74609375,
+			"angle": 0,
+			"strokeColor": "#2f9e44",
+			"backgroundColor": "#ffec99",
+			"fillStyle": "solid",
+			"strokeWidth": 4,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"index": "a3",
+			"roundness": {
+				"type": 2
+			},
+			"seed": 208142366,
+			"version": 230,
+			"versionNonce": 1383126942,
+			"isDeleted": false,
+			"boundElements": null,
+			"updated": 1762123682689,
+			"link": null,
+			"locked": false,
+			"points": [
+				[
+					0,
+					0
+				],
+				[
+					668.9375,
+					1.74609375
+				]
+			],
+			"lastCommittedPoint": null,
+			"startBinding": null,
+			"endBinding": null,
+			"startArrowhead": null,
+			"endArrowhead": null,
+			"polygon": false
+		},
+		{
+			"id": "EuNC1ZxYQKlXXPOGGZ-eJ",
+			"type": "line",
+			"x": -331.96875,
+			"y": 51.234375,
+			"width": 668.9375,
+			"height": 1.74609375,
+			"angle": 0,
+			"strokeColor": "#2f9e44",
+			"backgroundColor": "#ffec99",
+			"fillStyle": "solid",
+			"strokeWidth": 4,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"index": "a4",
+			"roundness": {
+				"type": 2
+			},
+			"seed": 599193986,
+			"version": 261,
+			"versionNonce": 1421277634,
+			"isDeleted": false,
+			"boundElements": null,
+			"updated": 1762123682989,
+			"link": null,
+			"locked": false,
+			"points": [
+				[
+					0,
+					0
+				],
+				[
+					668.9375,
+					1.74609375
+				]
+			],
+			"lastCommittedPoint": null,
+			"startBinding": null,
+			"endBinding": null,
+			"startArrowhead": null,
+			"endArrowhead": null,
+			"polygon": false
+		}
+	],
+	"appState": {
+		"theme": "light",
+		"viewBackgroundColor": "#ffffff",
+		"currentItemStrokeColor": "#2f9e44",
+		"currentItemBackgroundColor": "#ffec99",
+		"currentItemFillStyle": "solid",
+		"currentItemStrokeWidth": 4,
+		"currentItemStrokeStyle": "solid",
+		"currentItemRoughness": 1,
+		"currentItemOpacity": 100,
+		"currentItemFontFamily": 5,
+		"currentItemFontSize": 20,
+		"currentItemTextAlign": "left",
+		"currentItemStartArrowhead": null,
+		"currentItemEndArrowhead": "arrow",
+		"currentItemArrowType": "round",
+		"currentItemFrameRole": null,
+		"scrollX": 583,
+		"scrollY": 432.828125,
+		"zoom": {
+			"value": 1
+		},
+		"currentItemRoundness": "round",
+		"gridSize": 20,
+		"gridStep": 5,
+		"gridModeEnabled": false,
+		"gridColor": {
+			"Bold": "rgba(217, 217, 217, 0.5)",
+			"Regular": "rgba(230, 230, 230, 0.5)"
+		},
+		"currentStrokeOptions": null,
+		"frameRendering": {
+			"enabled": true,
+			"clip": true,
+			"name": true,
+			"outline": true,
+			"markerName": true,
+			"markerEnabled": true
+		},
+		"objectsSnapModeEnabled": false,
+		"activeTool": {
+			"type": "selection",
+			"customType": null,
+			"locked": false,
+			"fromSelection": false,
+			"lastActiveTool": null
+		}
+	},
+	"prevTextMode": "parsed",
+	"files": {}
+}

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Graham Joss</title>
+    <link rel="stylesheet" href="/styles.css">
+    <!-- Preserve deep links when served from static hosts such as GitHub Pages -->
+    <script>
+        window.originalHref = window.location.href;
+        (function restoreDeepLink(location) {
+            // GitHub Pages hands 404s to index with the path tucked into the query.
+            if (!location.search || location.search[1] !== '/') return;
+
+            const segments = location.search.slice(1).split('&');
+            const decodedPath = segments.map((segment) => segment.replace(/~and~/g, '&')).join('?');
+            const restoredUrl = location.pathname.slice(0, -1) + decodedPath + location.hash;
+
+            window.history.replaceState(null, null, restoredUrl);
+        }(window.location));
+        
+    </script>
+</head>
+<body>
+    <noscript class="noscript-warning">This application needs JavaScript to run.</noscript>
+
+    <header class="site-header">
+        <div class="brand">
+            <a href="/"> <span class="brand__accent">Graham</span> Joss </a>
+        </div>
+        <nav class="site-nav" aria-label="Primary">
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/guides">SPA Guide</a>
+            <a href="/notes">Notes</a>
+            <a href="/projects">Projects</a>
+        </nav>
+    </header>
+
+    <!-- The router swaps view markup into this mount point. -->
+    <main id="app" class="view-container" aria-live="polite"></main>
+
+    <footer class="site-footer">
+        Built with the History API and a sprinkle of standard DOM APIs.
+    </footer>
+
+    <!-- Boot the SPA module once the shell has been parsed. -->
+    <script type="module" src="/app.js"></script>
+</body>
+</html>

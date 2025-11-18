@@ -1,0 +1,201 @@
+/**
+ * marimo-panel.css - Left-Side Marimo Panel Styles
+ * Sliding panel from left with adjustable width (default 40vw)
+ */
+
+/* Marimo Panel Container */
+.marimo-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 40vw;
+    background: white;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 950;
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+    max-width: 70vw;
+}
+
+/* Open state */
+.marimo-panel.open {
+    transform: translateX(0);
+}
+
+/* Resize Handle (on right edge) */
+.marimo-resize-handle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 8px;
+    background: transparent;
+    cursor: ew-resize;
+    z-index: 1000;
+    transition: background 0.2s;
+}
+
+.marimo-resize-handle:hover {
+    background: linear-gradient(to right, transparent 0%, #667eea 5px, transparent 5px);
+}
+
+.marimo-resize-handle:active {
+    background: #667eea;
+}
+
+/* Visual indicator on resize handle */
+.marimo-resize-handle::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 2px;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 40px;
+    background: #ccc;
+    border-radius: 2px;
+    transition: background 0.2s;
+}
+
+.marimo-resize-handle:hover::before {
+    background: #667eea;
+}
+
+/* Panel Header */
+.marimo-panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    min-height: 48px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.marimo-panel-title {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+/* Panel Content Container */
+.marimo-panel-container {
+    flex: 1;
+    overflow: hidden; /* Changed from overflow-y: auto */
+    padding: 0;       /* Removed padding for iframe */
+    background: #f8f9fa;
+    position: relative;
+}
+
+/* Marimo iframe styling */
+.marimo-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+/* Loading state */
+.marimo-panel-container.loading::before {
+    content: 'Loading notebook...';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #666;
+    font-size: 18px;
+}
+
+/* Placeholder content (if iframe fails to load) */
+.marimo-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: #666;
+}
+
+.marimo-placeholder p:first-child {
+    font-size: 48px;
+    margin: 0 0 16px 0;
+}
+
+.placeholder-text {
+    font-size: 18px;
+    color: #999;
+}
+
+/* Close Button */
+.marimo-panel .close-panel-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    font-size: 24px;
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+    padding: 0;
+    line-height: 1;
+}
+
+.marimo-panel .close-panel-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Scrollbar Styling */
+.marimo-panel-container::-webkit-scrollbar {
+    width: 10px;
+}
+
+.marimo-panel-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.marimo-panel-container::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+}
+
+.marimo-panel-container::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Move Leaflet controls when panel is open */
+body.marimo-panel-open .leaflet-control-scale.scale-bar-positioned {
+    left: calc(var(--marimo-panel-width, 40vw) + 15px) !important;
+    transition: left 0s !important; /* Instant update during resize */
+}
+
+body.marimo-panel-open .leaflet-left {
+    left: calc(var(--marimo-panel-width, 40vw) + 15px) !important;
+    transition: left 0s !important; /* Instant update during resize */
+}
+
+/* Smooth transition when opening/closing (not during resize) */
+body:not(.marimo-panel-open) .leaflet-control-scale.scale-bar-positioned,
+body:not(.marimo-panel-open) .leaflet-left {
+    transition: left 0.3s ease !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .marimo-panel {
+        width: 80vw;
+        max-width: 80vw;
+    }
+    
+    .marimo-panel-container {
+        padding: 12px;
+    }
+}

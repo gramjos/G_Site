@@ -1,0 +1,3 @@
+ok...
+![[Wire frame.png]] ![[map.png]]
+thats it!

@@ -1,0 +1,215 @@
+/**
+ * data-layer.css
+ * Styling for GeoJSON data layer popups and tooltips
+ */
+
+/* ============================================
+   Rail Line Popup
+   ============================================ */
+
+.rail-popup {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    min-width: 250px;
+}
+
+.rail-popup h3 {
+    margin: 0 0 12px 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #2c3e50;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #2E86AB;
+}
+
+.rail-popup table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.rail-popup tr {
+    border-bottom: 1px solid #e9ecef;
+}
+
+.rail-popup tr:last-child {
+    border-bottom: none;
+}
+
+.rail-popup td {
+    padding: 6px 8px;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.rail-popup td:first-child {
+    font-weight: 600;
+    color: #495057;
+    width: 40%;
+}
+
+.rail-popup td:last-child {
+    color: #2c3e50;
+}
+
+/* ============================================
+   Rail Tooltip
+   ============================================ */
+
+.rail-tooltip {
+    background: rgba(46, 134, 171, 0.95) !important;
+    border: none !important;
+    border-radius: 6px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+    color: white !important;
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    padding: 6px 10px !important;
+    pointer-events: none !important;
+}
+
+.rail-tooltip::before {
+    border-top-color: rgba(46, 134, 171, 0.95) !important;
+}
+
+/* ============================================
+   Leaflet Popup Customization
+   ============================================ */
+
+.leaflet-popup-content-wrapper {
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.leaflet-popup-content {
+    margin: 16px;
+    font-size: 14px;
+}
+
+.leaflet-popup-tip {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* ============================================
+   Scale Bar Customization
+   ============================================ */
+
+/* Position scale bar to hug bottom-left corner */
+.leaflet-control-scale.scale-bar-positioned {
+    position: fixed !important;
+    bottom: 15px !important;
+    left: 15px !important;
+    z-index: 999 !important;
+    transition: bottom 0.3s ease !important;
+}
+
+/* Move scale bar above attribute panel when it's open (uses dynamic panel height) */
+body.attribute-panel-open .leaflet-control-scale.scale-bar-positioned {
+    bottom: calc(var(--panel-height, 40vh) + 15px) !important;
+    transition: bottom 0s !important; /* Instant update during resize */
+}
+
+.leaflet-control-scale {
+    background: rgba(255, 255, 255, 0.95) !important;
+    border-radius: 6px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+    padding: 4px 8px !important;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}
+
+.leaflet-control-scale-line {
+    border: 2px solid #2c3e50 !important;
+    border-top: none !important;
+    color: #2c3e50 !important;
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    line-height: 1.1 !important;
+    padding: 2px 5px 1px !important;
+    white-space: nowrap !important;
+}
+
+/* ============================================
+   Loading Indicator (for when data is loading)
+   ============================================ */
+
+.data-loading {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.data-loading::before {
+    content: "📡";
+    display: block;
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 10px;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.1); }
+}
+
+/* ============================================
+   Feature Highlight Styles
+   ============================================ */
+
+/* These are applied via JavaScript, documented here for reference */
+/*
+STRACNET Line (S):
+  - color: #2E86AB (blue)
+  - weight: 3
+  
+Connector Line (C):
+  - color: #A23B72 (purple)
+  - weight: 2
+  
+Hover Highlight:
+  - color: #F24236 (red)
+  - weight: 4
+  - opacity: 1
+*/
+
+/* ============================================
+   Responsive Design
+   ============================================ */
+
+@media (max-width: 640px) {
+    .rail-popup {
+        min-width: 200px;
+    }
+
+    .rail-popup h3 {
+        font-size: 14px;
+    }
+
+    .rail-popup td {
+        font-size: 12px;
+        padding: 5px 6px;
+    }
+
+    .leaflet-control-scale {
+        font-size: 10px !important;
+    }
+}
+
+/* ============================================
+   Print Styles
+   ============================================ */
+
+@media print {
+    .leaflet-control-scale {
+        display: block !important;
+    }
+    
+    .rail-tooltip {
+        display: none !important;
+    }
+}

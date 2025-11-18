@@ -1,0 +1,25 @@
+{
+  "name": "modular-map",
+  "version": "1.0.0",
+  "description": "A modular web mapping application with vanilla JavaScript",
+  "type": "module",
+  "scripts": {
+    "dev": "python3 -m http.server 8000",
+    "start": "python3 -m http.server 8000"
+  },
+  "keywords": [
+    "map",
+    "geojson",
+    "leaflet",
+    "vanilla-js",
+    "modular"
+  ],
+  "author": "gramjos",
+  "license": "MIT",
+  "devDependencies": {
+    "@modelcontextprotocol/server-filesystem": "^2025.8.21"
+  },
+  "dependencies": {
+    "firecrawl": "^4.3.8"
+  }
+}

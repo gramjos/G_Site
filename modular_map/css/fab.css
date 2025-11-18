@@ -1,0 +1,106 @@
+/**
+ * fab.css - Floating Action Button Styles
+ * Simple FAB with smooth reveal animation
+ */
+
+/* Floating Action Button Container */
+.fab-container {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    z-index: 1000;
+    transition: bottom 0.3s ease;
+}
+
+/* Move FAB above attribute panel when it's open (uses dynamic panel height) */
+body.attribute-panel-open .fab-container {
+    bottom: calc(var(--panel-height, 40vh) + 15px);
+    transition: bottom 0s; /* Instant update during resize */
+}
+
+/* Main FAB Button */
+.fab-main {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #667eea;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    font-size: 24px;
+    color: white;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.fab-main:hover {
+    transform: scale(1.1);
+}
+
+.fab-main.active {
+    background: #f5576c;
+}
+
+/* Sub-buttons Container */
+.fab-sub-buttons {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+/* Individual Sub-buttons */
+.fab-sub-button {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    right: 6px;
+    font-size: 18px;
+    color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateY(0) scale(0);
+    transition: all 0.3s;
+    pointer-events: none;
+}
+
+.fab-sub-button.visible {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: all;
+}
+
+.fab-sub-button:hover {
+    transform: scale(1.1);
+}
+
+/* Simple solid colors */
+.fab-sub-button:nth-child(1) { background: #FF6B9D; }
+.fab-sub-button:nth-child(2) { background: #FFA726; }
+.fab-sub-button:nth-child(3) { background: #42A5F5; }
+
+/* Stacked positions when visible */
+.fab-sub-button.visible:nth-child(1) { transform: translateY(-64px) scale(1); }
+.fab-sub-button.visible:nth-child(2) { transform: translateY(-118px) scale(1); }
+.fab-sub-button.visible:nth-child(3) { transform: translateY(-172px) scale(1); }
+
+/* Simple tooltip */
+.fab-tooltip {
+    position: absolute;
+    right: 54px;
+    background: #333;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 13px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.2s;
+    pointer-events: none;
+}
+
+.fab-sub-button:hover .fab-tooltip {
+    opacity: 1;
+}

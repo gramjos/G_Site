@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modular Map - Exploratory Data Analysis</title>
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+        crossorigin=""/>
+    
+    <!-- Map Styles -->
+    <link rel="stylesheet" href="css/map.css">
+    
+    <!-- Floating Action Button Styles -->
+    <link rel="stylesheet" href="css/fab.css">
+    
+    <!-- Attribute Table Styles -->
+    <link rel="stylesheet" href="css/attribute-table.css">
+    
+    <!-- Data Layer Styles -->
+    <link rel="stylesheet" href="css/data-layer.css">
+    
+    <!-- Marimo Panel Styles -->
+    <link rel="stylesheet" href="css/marimo-panel.css">
+    
+    <!-- Settings Dialog Styles -->
+    <link rel="stylesheet" href="css/settings-dialog.css">
+</head>
+<body>
+    <!-- Map container -->
+    <div id="map"></div>
+
+    <!-- Floating Action Button -->
+    <div class="fab-container" id="fabContainer">
+        <button class="fab-main" id="fabMain" aria-label="Menu">⚡</button>
+        <div class="fab-sub-buttons">
+            <button class="fab-sub-button" data-action="layer" aria-label="Layers">
+                <span class="fab-tooltip">Layers</span>
+                🗂️ 
+            </button>
+            <button class="fab-sub-button" data-action="search" aria-label="Search">
+                <span class="fab-tooltip">Analysis</span>
+               🐍
+            </button>
+            <button class="fab-sub-button" data-action="settings" aria-label="Settings">
+                <span class="fab-tooltip">Settings</span>
+                ℹ️
+            </button>
+        </div>
+    </div>
+
+    <!-- Marimo Panel (Left Side) -->
+    <div class="marimo-panel" id="marimoPanel">
+        <div class="marimo-resize-handle" id="marimoResizeHandle" title="Drag to resize"></div>
+        <div class="marimo-panel-header">
+            <span class="marimo-panel-title">🐍 Interactive Analysis</span>
+            <button class="close-panel-btn" id="closeMarimoPanel" aria-label="Close">×</button>
+        </div>
+        <div class="marimo-panel-container" id="marimoPanelContainer">
+            <!-- Marimo WASM notebook - Full Python execution in browser! -->
+            <!-- Exported with: marimo export html-wasm interactive_analysis.py -o notebooks --mode edit -->
+            <!-- <iframe 
+                id="marimoFrame"
+                class="marimo-iframe"
+                src="output_dir/index.html"
+                frameborder="0"
+                allow="cross-origin-isolated"
+                style="width: 100%; height: 100%; border: none;">
+            </iframe> -->
+        </div>
+    </div>
+
+    <!-- Attribute Table Panel -->
+    <div class="attribute-panel" id="attributePanel">
+        <div class="resize-handle" id="resizeHandle" title="Drag to resize"></div>
+        <div class="attribute-panel-header">
+            <span class="attribute-panel-title">Attribute Table</span>
+            <span class="feature-count">0</span>
+            <span class="column-count">0</span>
+            <button class="close-panel-btn" id="closeAttributePanel" aria-label="Close">×</button>
+        </div>
+        <div class="attribute-table-container" id="attributeTableContainer">
+            <!-- Table will be dynamically inserted here -->
+        </div>
+    </div>
+    
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+        crossorigin=""></script>
+    
+    <!-- Application Module (ES6) -->
+    <script type="module" src="js/App.js"></script>
+</body>
+</html>

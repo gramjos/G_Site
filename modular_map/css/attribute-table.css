@@ -1,0 +1,328 @@
+/**
+ * attribute-table.css - Attribute Table Panel Styles
+ * Sliding panel from bottom with data table
+ */
+
+/* Attribute Panel Container */
+.attribute-panel {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40vh;
+    background: white;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    z-index: 900;
+    display: flex;
+    flex-direction: column;
+    min-height: 150px;
+    max-height: 90vh;
+}
+
+/* Open state */
+.attribute-panel.open {
+    transform: translateY(0);
+}
+
+/* Resize Handle */
+.resize-handle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 8px;
+    background: transparent;
+    cursor: ns-resize;
+    z-index: 1000;
+    transition: background 0.2s;
+}
+
+.resize-handle:hover {
+    background: linear-gradient(to bottom, #667eea 0%, #667eea 3px, transparent 3px);
+}
+
+.resize-handle:active {
+    background: #667eea;
+}
+
+/* Visual indicator on resize handle */
+.resize-handle::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 3px;
+    background: #ccc;
+    border-radius: 2px;
+    transition: background 0.2s;
+}
+
+.resize-handle:hover::before {
+    background: #667eea;
+}
+
+/* Panel Header - Condensed Space-Saving Design */
+.attribute-panel-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 6px 12px;
+    background: #f5f5f5;
+    border-bottom: 1px solid #ddd;
+    font-size: 13px;
+}
+
+.attribute-panel-title {
+    font-weight: 600;
+    color: #333;
+}
+
+.feature-count::before {
+    content: "Features: ";
+    color: #666;
+    font-weight: 400;
+}
+
+.column-count::before {
+    content: "Cols: ";
+    color: #666;
+    font-weight: 400;
+}
+
+.feature-count,
+.column-count {
+    font-weight: 500;
+    color: #333;
+}
+
+.close-panel-btn {
+    margin-left: auto;
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #666;
+    cursor: pointer;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.close-panel-btn:hover {
+    background: #e0e0e0;
+    color: #333;
+}
+
+/* Table Container - Minimal Padding */
+.attribute-table-container {
+    flex: 1;
+    overflow: auto;
+    padding: 0 8px 8px 8px;
+}
+
+/* Search Box - Condensed */
+.table-search {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 6px;
+    margin-bottom: 6px;
+    position: relative;
+}
+
+.search-input {
+    flex: 1;
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    font-size: 13px;
+    background: white;
+    color: #333;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.1);
+}
+
+.search-input:disabled {
+    background: #f5f5f5;
+    cursor: not-allowed;
+    color: #999;
+    opacity: 0.6;
+}
+
+.clear-search-btn {
+    background: none;
+    border: none;
+    font-size: 16px;
+    color: #999;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 3px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.clear-search-btn:hover {
+    background: #f5f5f5;
+    color: #333;
+}
+
+.search-hint {
+    font-size: 11px;
+    color: #999;
+    font-style: italic;
+}
+
+/* Table Wrapper for Scroll */
+.table-wrapper {
+    overflow-x: auto;
+    overflow-y: auto;
+    flex: 1;
+    min-height: 0;
+}
+
+/* Attribute Table */
+.attribute-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    background: white;
+}
+
+.attribute-table thead {
+    position: sticky;
+    top: 0;
+    background: #667eea;
+    color: white;
+    z-index: 10;
+}
+
+.attribute-table th {
+    padding: 10px 12px;
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 2px solid #5568d3;
+    white-space: nowrap;
+}
+
+/* Sortable column headers */
+.attribute-table th.sortable {
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.2s;
+}
+
+.attribute-table th.sortable:hover {
+    background: #5568d3;
+}
+
+.attribute-table th.sortable.sorted {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.attribute-table td {
+    padding: 8px 12px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.attribute-table tbody tr {
+    cursor: pointer;
+    transition: background-color 150ms ease;
+}
+
+.attribute-table tbody tr:hover {
+    background: #f5f7ff;
+}
+
+.attribute-table .row-number {
+    background: #f5f5f5;
+    color: #666;
+    font-weight: 500;
+    text-align: center;
+    width: 60px;
+    position: sticky;
+    left: 0;
+    z-index: 5;
+}
+
+.attribute-table thead .row-number {
+    background: #5568d3;
+    color: white;
+}
+
+/* Empty/Error States */
+.no-data,
+.error-message {
+    text-align: center;
+    padding: 40px 20px;
+    color: #999;
+    font-size: 16px;
+}
+
+.error-message {
+    color: #d32f2f;
+}
+
+/* Table Note */
+.table-note {
+    text-align: center;
+    padding: 10px;
+    color: #666;
+    font-size: 13px;
+    font-style: italic;
+    background: #fff9c4;
+    margin-top: 10px;
+    border-radius: 4px;
+}
+
+.table-note.search-results {
+    background: #e3f2fd;
+    color: #1976d2;
+    font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .attribute-panel {
+        height: 50vh;
+    }
+    
+    .attribute-table {
+        font-size: 12px;
+    }
+    
+    .attribute-table th,
+    .attribute-table td {
+        padding: 6px 8px;
+    }
+}
+
+/* Scrollbar Styling */
+.table-wrapper::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.table-wrapper::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}

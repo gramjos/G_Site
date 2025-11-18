@@ -1,0 +1,421 @@
+/**
+ * settings-dialog.css
+ * Simple, clean modal dialog styling
+ */
+
+/* ============================================
+   Dialog Wrapper (Full Screen Overlay)
+   ============================================ */
+
+.about-dialog-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 300ms ease;
+}
+
+.about-dialog-wrapper.active {
+    opacity: 1;
+}
+
+/* ============================================
+   Backdrop
+   ============================================ */
+
+.about-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+/* ============================================
+   Dialog Box
+   ============================================ */
+
+.about-dialog {
+    position: relative;
+    width: 90%;
+    max-width: 700px;
+    max-height: 85vh;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    z-index: 2;
+    transform: scale(0.9);
+    transition: transform 300ms ease;
+}
+
+.about-dialog-wrapper.active .about-dialog {
+    transform: scale(1);
+}
+
+/* ============================================
+   Header
+   ============================================ */
+
+.about-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+    color: white;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.about-header h2 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.about-close-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+    transition: all 200ms ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-close-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: rotate(90deg);
+}
+
+/* ============================================
+   Content Area
+   ============================================ */
+
+.about-content {
+    padding: 24px;
+    max-height: calc(85vh - 72px);
+    overflow-y: auto;
+}
+
+/* Custom scrollbar */
+.about-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.about-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.about-content::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+}
+
+.about-content::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+/* ============================================
+   Profile Section
+   ============================================ */
+
+.about-profile {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.profile-image-container {
+    flex-shrink: 0;
+}
+
+.profile-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #4a90e2;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.profile-info h3 {
+    margin: 0 0 8px 0;
+    font-size: 14px;
+    color: #6c757d;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.profile-name {
+    margin: 0 0 12px 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.github-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: #24292e;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: all 200ms ease;
+}
+
+.github-link:hover {
+    background: #1a1e21;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.github-logo {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+/* ============================================
+   Divider
+   ============================================ */
+
+.about-divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, #e0e0e0, transparent);
+    margin: 24px 0;
+}
+
+/* ============================================
+   Sections
+   ============================================ */
+
+.about-section {
+    margin-bottom: 24px;
+}
+
+.about-section h3 {
+    margin: 0 0 12px 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.about-section p {
+    margin: 8px 0;
+    font-size: 14px;
+    color: #495057;
+    line-height: 1.6;
+}
+
+.about-version {
+    color: #6c757d;
+    font-size: 13px !important;
+    font-family: 'Courier New', monospace;
+}
+
+/* ============================================
+   Data Sources
+   ============================================ */
+
+.data-source {
+    background: #f8f9fa;
+    padding: 16px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    border-left: 4px solid #4a90e2;
+}
+
+.data-source:last-child {
+    margin-bottom: 0;
+}
+
+.data-source h4 {
+    margin: 0 0 8px 0;
+    font-size: 16px;
+    color: #2c3e50;
+}
+
+.data-source p {
+    margin: 6px 0;
+}
+
+.data-citation {
+    font-size: 13px !important;
+    color: #6c757d !important;
+    margin-top: 8px !important;
+}
+
+.data-citation a {
+    color: #4a90e2;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 200ms ease;
+}
+
+.data-citation a:hover {
+    border-bottom-color: #4a90e2;
+}
+
+.data-details {
+    font-size: 13px !important;
+    color: #495057 !important;
+    background: white;
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 10px !important;
+}
+
+/* ============================================
+   Technology List
+   ============================================ */
+
+.tech-list {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0 0 0;
+}
+
+.tech-list li {
+    padding: 8px 0;
+    font-size: 14px;
+    color: #495057;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.tech-list li:last-child {
+    border-bottom: none;
+}
+
+.tech-list strong {
+    color: #2c3e50;
+}
+
+/* ============================================
+   Citation Section
+   ============================================ */
+
+.citation-section {
+    background: #f8f9fa;
+    padding: 16px;
+    border-radius: 8px;
+}
+
+.citation-box {
+    background: white;
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    border-left: 3px solid #6c757d;
+}
+
+.citation-box:last-child {
+    margin-bottom: 0;
+}
+
+.citation-box p:first-child {
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 8px !important;
+}
+
+.citation-text {
+    font-size: 13px !important;
+    color: #495057 !important;
+    line-height: 1.8 !important;
+    font-style: italic;
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+
+.about-footer {
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid #e9ecef;
+    text-align: center;
+}
+
+.about-footer p {
+    margin: 0;
+    font-size: 14px;
+    color: #6c757d;
+    font-style: italic;
+}
+
+/* ============================================
+   Responsive Design
+   ============================================ */
+
+@media (max-width: 640px) {
+    .about-dialog {
+        width: 95%;
+        max-height: 90vh;
+    }
+
+    .about-header {
+        padding: 16px 20px;
+    }
+
+    .about-header h2 {
+        font-size: 18px;
+    }
+
+    .about-content {
+        padding: 20px;
+        max-height: calc(90vh - 64px);
+    }
+
+    .about-profile {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-image {
+        width: 80px;
+        height: 80px;
+    }
+
+    .profile-name {
+        font-size: 18px;
+    }
+}
+
+/* ============================================
+   Accessibility
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    .about-dialog-wrapper,
+    .about-dialog,
+    .about-close-btn,
+    .github-link {
+        transition: none !important;
+    }
+}
+
+.about-close-btn:focus-visible,
+.github-link:focus-visible,
+.data-citation a:focus-visible {
+    outline: 3px solid #4a90e2;
+    outline-offset: 2px;
+}

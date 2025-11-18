@@ -1,0 +1,3 @@
+### hey i found the next idea.... here it is....
+![[f.png]]
+there is always next idea, bt what should i awlays be doing?

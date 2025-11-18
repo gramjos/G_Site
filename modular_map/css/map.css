@@ -1,0 +1,22 @@
+/**
+ * map.css - Map Container Styles
+ * Core styles for the Leaflet map container
+ */
+
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styles */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+/* Map Container - Full viewport height */
+#map {
+    height: 100vh;
+    width: 100%;
+}
