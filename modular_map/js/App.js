@@ -95,7 +95,7 @@ class MapApplication {
 
         // Load BNSF rail data
         try {
-            await this.dataLayer.loadGeoJSON('data/bnsf_rail.geojson');
+            await this.dataLayer.loadGeoJSON('data/bnsf_rail_illinois.geojson');
         } catch (error) {
             console.error('Failed to load rail data:', error);
         }
