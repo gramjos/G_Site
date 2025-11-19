@@ -11,10 +11,13 @@ export function renderHome(ctx) {
             <div class="home-hero__text">
                 <h1>A Curious Tinkeria </h1>
                 <p>
-                    My musings for you.
+                    My musings for you...
                 </p>
 				<ul>
-					<li> To learn what it means to be Graham: </li>
+					<li> To learn what it means to be Graham: <a href="/about">About Me</a> </li>
+					<li> To learn how this site works: <a href="/guides">SPA Guides</a> </li>
+					<li> To see my projects: <a href="/projects">Projects</a> </li>
+					<li> To see my Obsidian vault with Excalidraw support: <a href="/notes">Notes</a> </li>
 				</ul>
             </div>
             <div class="home-hero__image">
