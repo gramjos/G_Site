@@ -5,7 +5,7 @@ import { codeBlock, escapeHtml } from '../utils/rendering.js';
 import { initializeExcalidrawEmbeds } from '../utils/excalidraw.js';
 
 export function renderHome(ctx) {
-    document.title = " 𝔾𝓡⍲ℳ "; 
+    document.title = "- Graham -"; 
     ctx.mount.innerHTML = `
         <section class="home-hero">
             <div class="home-hero__text">
