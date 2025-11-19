@@ -149,7 +149,7 @@ class MapApplication {
             this.attributeTable.close();
         } else {
             // Load and display in one step
-            await this.attributeTable.loadFromFile('data/bnsf_rail.geojson');
+            await this.attributeTable.loadFromFile('data/bnsf_rail_illinois.geojson');
             this.attributeTable.open();
         }
     }
