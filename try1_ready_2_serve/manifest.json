@@ -1,8 +1,8 @@
 {
   "source": "/Users/gramjos/Documents/try1",
-  "output": "/Users/gramjos/Computation/vanilla_web_dev/gramjos.github.io/try1_ready_2_serve",
+  "output": "/Users/gramjos/Computation/cloud-pages/G_Site/try1_ready_2_serve",
   "publicPath": "/try1_ready_2_serve",
-  "generatedAt": "2025-11-04T16:54:37.927082+00:00",
+  "generatedAt": "2025-11-23T17:24:10.799660+00:00",
   "version": 1,
   "root": {
     "type": "directory",
@@ -50,45 +50,6 @@
               {
                 "title": "Moss",
                 "slugPath": "moss"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "type": "directory",
-        "name": "s1",
-        "title": "S1",
-        "slug": "s1",
-        "slugPath": "s1",
-        "readme": {
-          "source": "s1/README.md",
-          "html": "s1/README.html"
-        },
-        "breadcrumbs": [
-          {
-            "title": "Notes",
-            "slugPath": ""
-          }
-        ],
-        "directories": [],
-        "files": [
-          {
-            "type": "file",
-            "name": "to greatness.md",
-            "title": "To Greatness",
-            "slug": "to-greatness",
-            "slugPath": "s1/to-greatness",
-            "source": "s1/to greatness.md",
-            "html": "s1/to greatness.html",
-            "breadcrumbs": [
-              {
-                "title": "Notes",
-                "slugPath": ""
-              },
-              {
-                "title": "S1",
-                "slugPath": "s1"
               }
             ]
           }

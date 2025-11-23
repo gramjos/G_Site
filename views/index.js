@@ -22,6 +22,7 @@ export function renderHome(ctx) {
             </div>
             <div class="home-hero__image">
                 <img src="/assets/pro_pic_grey.jpg" alt="A picture of Graham Joss">
+                <p style="font-style: italic; font-size: small; text-align: center; margin-top: 0.25rem;">(Image has a hover mouse effect)</p>
             </div>
         </section>
         <section>
@@ -38,7 +39,9 @@ export function renderHome(ctx) {
     const colorSrc = '/assets/pro_pic.jpg';
     const root = document.documentElement;
     const originalBg = getComputedStyle(root).getPropertyValue('--bg').trim();
-    const deepBlueBg = '#2e8aecff';
+    const deepBlueBg = '#6bb3ffff';
+    const footer = document.querySelector('.site-footer');
+    const heroSection = ctx.mount.querySelector('.home-hero');
 
     // Preload the color image to prevent a flash on first hover
     const colorImage = new Image();
@@ -47,10 +50,14 @@ export function renderHome(ctx) {
     img.addEventListener('mouseenter', () => {
         img.src = colorSrc;
         root.style.setProperty('--bg', deepBlueBg);
+        if (footer) footer.style.color = 'white';
+        if (heroSection) heroSection.classList.add('active-hero');
     });
     img.addEventListener('mouseleave', () => {
         img.src = greySrc;
         root.style.setProperty('--bg', originalBg);
+        if (footer) footer.style.color = '';
+        if (heroSection) heroSection.classList.remove('active-hero');
     });
 }
 export function renderAbout(ctx) {
@@ -59,6 +66,7 @@ export function renderAbout(ctx) {
         <section class="">
             <div class="">
                 <h1>What does it mean to live a life worth live? </h1>
+                <p>
 					"To live is to risk it all; otherwise, you're just an inert chunk of randomly assembled molecules drifting wherever the universe blows you" - Rick C137
                 </p>
                 <p>

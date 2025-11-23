@@ -24,3 +24,26 @@ const router = createRouter({
 // and runs the first route match to render the initial page.
 debugger; 
 router.start();
+
+// Global event listener for copy buttons
+document.addEventListener('click', (event) => {
+    if (event.target.classList.contains('copy-btn')) {
+        const button = event.target;
+        const wrapper = button.closest('.code-wrapper');
+        const code = wrapper.querySelector('code');
+        const textToCopy = code.innerText;
+
+        navigator.clipboard.writeText(textToCopy).then(() => {
+            const originalText = button.innerText;
+            button.innerText = 'Copied!';
+            button.classList.add('copied');
+
+            setTimeout(() => {
+                button.innerText = originalText;
+                button.classList.remove('copied');
+            }, 2000);
+        }).catch(err => {
+            console.error('Failed to copy text: ', err);
+        });
+    }
+});

@@ -13,7 +13,7 @@ from pathlib import Path
 from typing import List
 from .assets import normalise_image_src
 from .models import BuildContext
-from .utils import escape_html
+from .utils import escape_html, slugify
 
 
 def render_markdown(ctx: BuildContext, source_file: Path, markdown_text: str) -> str:
@@ -34,11 +34,38 @@ def render_markdown(ctx: BuildContext, source_file: Path, markdown_text: str) ->
         A string containing the generated HTML fragment.
     """
     html_lines: List[str] = []
+    in_code_block = False
+    code_block_content = []
+    code_block_lang = ""
 
     x = markdown_text.splitlines()
     for raw_line in x:
         line = raw_line.strip() # Strip leading/trailing whitespace
-        if not line.strip(): # if line empty
+        
+        # Code Block Processing
+        if in_code_block:
+            if line.startswith("```"):
+                # End of code block
+                in_code_block = False
+                code_content = "\n".join(code_block_content)
+                escaped_code = escape_html(code_content)
+                
+                html_lines.append(f'''<div class="code-wrapper">
+    <button class="copy-btn">Copy Code</button>
+    <pre><code class="language-{code_block_lang}">{escaped_code}</code></pre>
+</div>''')
+                code_block_content = []
+                code_block_lang = ""
+            else:
+                code_block_content.append(raw_line)
+            continue
+
+        if line.startswith("```"):
+            in_code_block = True
+            code_block_lang = line[3:].strip()
+            continue
+
+        if not line: # if line empty
             continue
 
         # Markdown processing:
@@ -97,8 +124,49 @@ def render_markdown(ctx: BuildContext, source_file: Path, markdown_text: str) ->
                 else:
                     # Handle regular images
                     asset_path = normalise_image_src(ctx, source_file.parent, source_file.parent.relative_to(ctx.source_root), src)
-                    html_lines.append(f'<img src="{asset_path}" alt="{escape_html(alt)}"/>')
+                    html_lines.append(f'<img src="{asset_path}" alt="{escape_html(alt)}" loading="lazy" decoding="async" />')
             continue
+        # Is Link
+        # We process links before wrapping in paragraph tags.
+        # This regex matches [[Link]] but ignores ![[Image]]
+        link_pattern = re.compile(r"(?<!\!)\[\[(.+?)\]\]")
+        
+        def replace_link(match):
+            text = match.group(1)
+            if '|' in text:
+                target, label = text.split('|', 1)
+            else:
+                target, label = text, text
+            
+            # Find the file
+            found_path = None
+            # Search for file.md
+            try:
+                found_path = next(ctx.source_root.rglob(f"{target}.md"), None)
+                
+                if not found_path:
+                    # Search for directory/README.md
+                    for path in ctx.source_root.rglob(target):
+                        if path.is_dir() and (path / "README.md").exists():
+                            found_path = path / "README.md"
+                            break
+            except Exception:
+                pass
+            
+            if found_path:
+                relative_path = found_path.relative_to(ctx.source_root)
+                parts = list(relative_path.parent.parts)
+                if found_path.name.lower() != 'readme.md':
+                    parts.append(found_path.stem)
+                
+                slug_parts = [slugify(p) for p in parts]
+                slug_path = "/".join(slug_parts)
+                return f'<a href="/notes/{slug_path}">{label}</a>'
+            
+            return label
+
+        line = link_pattern.sub(replace_link, line)
+
         # Is Paragraph
         # catch all is paragraph
         html_lines.append(f"<p>{line}</p>")
