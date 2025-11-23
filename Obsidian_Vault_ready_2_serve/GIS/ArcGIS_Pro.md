@@ -1,0 +1,6 @@
+**Projection on the fly**
+Changing the coordinate system in the Map Properties window affects only the map. It does not change the coordinate system of your data layers. The layers are projected on the fly to draw correctly on the map.A new projection of the map and ll its layers without changing the GCS of each layer.
+Projection on the fly performs the same process as the Project tool, only the data does not change. It is merely displayed in the new coordinate system temporarily.  [ESRI - Learn](https://learn.arcgis.com/en/projects/choose-the-right-projection/)
+The coordinate system of the default base map will follow the coordinate system of the first layer added.
+### Symbology 
+In an ArcGIS terms, a graduated symbol map is a classed map, and a proportional symbol map is an un-classed map

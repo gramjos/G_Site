@@ -1,0 +1,21 @@
+<p>only audio with highest quality</p>
+<div class="code-wrapper">
+    <button class="copy-btn">Copy Code</button>
+    <pre><code class="language-">yt-dlp -x --audio-format mp3 --audio-quality 0 &quot;URL&quot;</code></pre>
+</div>
+<p>For Long Audio</p>
+<div class="code-wrapper">
+    <button class="copy-btn">Copy Code</button>
+    <pre><code class="language-">yt-dlp -x --audio-format mp3 \
+  --audio-quality 0 \
+  --embed-thumbnail \
+  --add-metadata \
+  --output &quot;~/Music/%(uploader)s - %(title)s.%(ext)s&quot; \
+  --continue \
+  --no-part \
+  --retries infinite \
+  --fragment-retries infinite \
+  --buffer-size 32K \
+  --concurrent-fragments 4 \
+  &quot;https://www.youtube.com/watch?v=VIDEO_ID&quot;</code></pre>
+</div>

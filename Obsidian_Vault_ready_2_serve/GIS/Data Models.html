@@ -1,0 +1,54 @@
+<p>---</p>
+<p>tags:</p>
+<p>- gis</p>
+<p>- datum</p>
+<p>- coordinates</p>
+<p>- spatial_data_model</p>
+<p>- layers</p>
+<p>- thematic_layer</p>
+<p>- planar_coordinate_system</p>
+<p>- xy</p>
+<p>- spherical_coordinate_system</p>
+<p>- degree_minute_second</p>
+<p>- decimal_degree</p>
+<p>- radian</p>
+<p>---</p>
+<p>Data in a GIS represent a simplified view of the real world. Data include information on the spatial location and the non spatial attributes of entities like roads, mountains or accident locations or other features we care about. Data include information on the spatial location and non-spatial properties of entities. Each entity is represented by a spatial object. This defines the entity correspondence.</p>
+<p>###### Spatial Data Model</p>
+<p>- objects in a spatial data database plus the relationships among them.</p>
+<p>###### GIS Layers</p>
+<p>- groupings of spatial and attribute data that form cartographic object (thematic layer)</p>
+<h4>Coordinate Data</h4>
+<p>- define from the origin the location and extent of an object</p>
+<p>- Each projection unambiguously defines coordinate values</p>
+<h1>Distinction made between &#39;lines of latitude&#39; and latitude $\phi$</h1>
+<p>When dealing with a 3D object angular units are to describe positions on the surface.</p>
+<img src="spherical_coordinates.png|350" alt="" loading="lazy" decoding="async" />
+<p>Latitude/Longitude ellipsoid angular units are NOT measured from the origin. The latitude is measured from the perpendicular line from where the plane on the surface intersects with the equator line.</p>
+<img src="oblate_ellipsoid.png|350" alt="" loading="lazy" decoding="async" />
+<p>###### Planar Coordinate Systems</p>
+<p>- 2 dimensional coordinate system that define two orthogonal axis forming a plane.</p>
+<p>- Northing axis or the Y axis is vertical</p>
+<p>- Easting axis of the X axis is horizontal</p>
+<p>Viewing geography on 2D introduces un-avoidable distortion, but limiting the 2D area we are viewing limits the distortion.</p>
+<p>###### Spherical Coordinate System</p>
+<p>- coordinates on a sphere measure with angular units like degrees</p>
+<p>- to make a complete measurement we need: 2 angles (angles of rotation) and a defined fixed radius (R)</p>
+<p>Angles of Rotations: longitude ( $\lambda$ ) and latitude ( $\phi$ )</p>
+<p>$\lambda$ measures east-west distance</p>
+<p>$\phi$ measures north-south distance</p>
+<img src="lines_V_angular_lat_long.png|410" alt="" loading="lazy" decoding="async" />
+<p>___</p>
+<p>Aside,</p>
+<p>_linguistic confusion_</p>
+<p>**We say that the parallel lines travel east-west, but these lines specify a locations north-south extent**</p>
+<img src="coordinate_sphere_measurements.png|400" alt="" loading="lazy" decoding="async" />
+<p>Since $\lambda$ converge at the poles (points) any location with either a 90˚ or -90˚ $\phi$ means this local is at the North, South pole respectively.</p>
+<p>___</p>
+<p>By convention, latitudes increase to maximum of 90˚ and minimum of -90˚</p>
+<img src="coordinate_conventions.png|400" alt="" loading="lazy" decoding="async" />
+<p>Spherical coordinate are usually measured in DMS (Degrees Minutes Seconds) notation for example, N43˚35'20" which represents forty-three degrees, thirty-five second, and 20 seconds of latitude.</p>
+<p>Each degree is 60 minutes of an arc and each minutes is 60 seconds of an arc.</p>
+<p>###### Datums</p>
+<p>- 'various versions of the X Y Z coordinate system'</p>
+<p>- the assumption(s) we make about the 3D shape of the Earth</p>

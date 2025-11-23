@@ -1,0 +1,51 @@
+<p>---</p>
+<p>tags: [javascript,]</p>
+<p>---</p>
+<h5>My learnings about the language</h5>
+<p>`hoisting` the javascript default mechanism of moving all variable and function declarations to the top of there containing scope during compilation phase. __Note__, only declarations not initializations are hoisted.  Lifting up variable declarations to the top of file ... `hoisting them up`</p>
+<p>valid js below. `5` will appear in `demo`'s innerHTML</p>
+<div class="code-wrapper">
+    <button class="copy-btn">Copy Code</button>
+    <pre><code class="language-js"> &lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+&lt;p id=&quot;demo&quot;&gt;&lt;/p&gt;
+&lt;script&gt;
+	x = 5; // Assign 5 to x
+	elem = document.getElementById(&quot;demo&quot;); // Find an element 
+	elem.innerHTML = x;           // Display x in the element
+	var x; // Declare x
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt; </code></pre>
+</div>
+<p>The above techniques does not work for `let` (`ReferenceError`) and `const` (_just won't print it_). To avoid `hoisting` confusion just put all variables at the top of the file. The  `use strict` directive requires all variables to be declared before they are used.</p>
+<div class="code-wrapper">
+    <button class="copy-btn">Copy Code</button>
+    <pre><code class="language-js">var x = 5;  
+var y;  
+alert(y);  
+y = 7;</code></pre>
+</div>
+<p>The alert will be `undefined` because the assignment of `y` is not moved to the top.</p>
+<p>> [!info]+ Note [Web3Schools](https://www.w3schools.com/js/js_variables.asp)</p>
+<p>The `var` keyword was used in all JavaScript code from 1995 to 2015.</p>
+<p>The `let` and `const` keywords were added to JavaScript in 2015.</p>
+<p>The `var` keyword should only be used in code written for older browsers.</p>
+<p>- variables `let` V `var` V `const`</p>
+<p>- `var`/`let` can be redeclare or updated.</p>
+<p>- `const` cannot be changed</p>
+<p>---</p>
+<p>__Template Literal__ - a multi-line string surrounded with back ticks</p>
+<p>---</p>
+<p>[Canvas Reference](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API)</p>
+<p>---</p>
+<p>Private methods for event listeners. Private meaning this method cannot called outside this class.</p>
+<p>---</p>
+<p>Creating objects for reuse.</p>
+<p>---</p>
+<p>The spread operator `...` turns an array into its individual components</p>
+<p>---</p>
+<p>mobile compatibility HTML with `meta` tag</p>
+<p>to prevent user from zooming in the meta tag set `user-scalable=0`</p>
+<p>Event listeners for the touch are different than the mouse, but we can use most of the same helper functions</p>

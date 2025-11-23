@@ -1,5 +1,6 @@
 // Lightweight client-side manifest loader for dynamically rendered notes.
-const CONTENT_BASE = '/try1_ready_2_serve';
+// const CONTENT_BASE = '/try1_ready_2_serve';
+const CONTENT_BASE = '/Obsidian_Vault_ready_2_serve';
 const MANIFEST_URL = `${CONTENT_BASE}/manifest.json`;
 
 let manifestPromise;

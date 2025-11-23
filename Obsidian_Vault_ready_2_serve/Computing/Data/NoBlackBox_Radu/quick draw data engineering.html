@@ -1,0 +1,88 @@
+<p>---</p>
+<p>tags: [python, data,]</p>
+<p>---</p>
+<h5>running questions:</h5>
+<p>1. setting the `IFS` back after using in a command line command versus using it in a stand alone script.</p>
+<p>2. how protable is `fzf`?</p>
+<p>###### This document will walk through the process of selecting which drawing to download and then downloading them locally. Then create a web viewer that does an initial inspection.</p>
+<p>> [!info]+ ToC</p>
+<p>> 1. Virtual environment</p>
+<p>> 2. Download `gsutil`</p>
+<p>> 3.</p>
+<p>></p>
+<p>1. Create a virtual environment for `pip` installed packages with `python -m venv ~/.envs/___` (where `___` is the newly create virtual environments name)</p>
+<p>- environment created: `quick_draw`</p>
+<div class="code-wrapper">
+    <button class="copy-btn">Copy Code</button>
+    <pre><code class="language-shell">source ~/.envs/quick_draw/bin/activate</code></pre>
+</div>
+<p>2. download the google suite command line tools requires to pull the bucket called "quickdraw_dataset"</p>
+<div class="code-wrapper">
+    <button class="copy-btn">Copy Code</button>
+    <pre><code class="language-shell">curl https://sdk.cloud.google.com | bash</code></pre>
+</div>
+<p>The above command downloaded materials lives in `~/.envs/quick_draw/`</p>
+<p>Replace the current shell with environment's shell (zsh)</p>
+<div class="code-wrapper">
+    <button class="copy-btn">Copy Code</button>
+    <pre><code class="language-shell">exec -l $SHELL</code></pre>
+</div>
+<p>Launch interactive _Getting Started_ workflow</p>
+<div class="code-wrapper">
+    <button class="copy-btn">Copy Code</button>
+    <pre><code class="language-shell">gcloud init</code></pre>
+</div>
+<p>From the above command's interactive menu: create new project called `quick-draw-me`</p>
+<p>- show the dataset</p>
+<div class="code-wrapper">
+    <button class="copy-btn">Copy Code</button>
+    <pre><code class="language-shell">gsutil ls -l gs://quickdraw_dataset/full/binary/</code></pre>
+</div>
+<p>- show size</p>
+<div class="code-wrapper">
+    <button class="copy-btn">Copy Code</button>
+    <pre><code class="language-shell">gsutil du -s -h gs://quickdraw_dataset/full/binary/</code></pre>
+</div>
+<p>- just see file names</p>
+<div class="code-wrapper">
+    <button class="copy-btn">Copy Code</button>
+    <pre><code class="language-shell">gsutil ls -l gs://quickdraw_dataset/full/binary/ |awk -F &quot;/&quot; &#39;{print $6}&#39;|column</code></pre>
+</div>
+<p>3. download quickdraw_dataset</p>
+<p>- Shell expansion displays the selected drawings</p>
+<div class="code-wrapper">
+    <button class="copy-btn">Copy Code</button>
+    <pre><code class="language-shell">time gsutil cp gs://quickdraw_dataset/full/binary/{pig,van,dragon}.bin .</code></pre>
+</div>
+<p>outputs...</p>
+<div class="code-wrapper">
+    <button class="copy-btn">Copy Code</button>
+    <pre><code class="language-">Copying gs://quickdraw_dataset/full/binary/pig.bin...
+
+Copying gs://quickdraw_dataset/full/binary/van.bin...                           
+
+Copying gs://quickdraw_dataset/full/binary/dragon.bin...                        
+
+| [3 files][ 71.8 MiB/ 71.8 MiB]                                                
+
+Operation completed over 3 objects/71.8 MiB.                                     
+
+gsutil cp gs://quickdraw_dataset/full/binary/{pig,van,dragon}.bin .  1.02s user 0.74s system 30% cpu 5.801 total</code></pre>
+</div>
+<p>Use `tab` to perform multiple (`--multi`) selection</p>
+<div class="code-wrapper">
+    <button class="copy-btn">Copy Code</button>
+    <pre><code class="language-shell">gsutil ls -l gs://quickdraw_dataset/full/binary/ |awk -F &quot;/&quot; &#39;{print $6}&#39;|fzf --multi</code></pre>
+</div>
+<h5>TODO: Can the selection from `fzf` be parametrized as the shell expansion to download the from gsutil... solved, yes.</h5>
+<div class="code-wrapper">
+    <button class="copy-btn">Copy Code</button>
+    <pre><code class="language-shell"> gsutil ls -l gs://quickdraw_dataset/full/binary/ |
+   awk -F &quot;/&quot; &#39;{print $6}&#39; |
+   sed &#39;s/\.bin$//&#39;  |
+   fzf --multi  |
+   tr &#39;\n&#39; &#39;,&#39;  |
+   sed &#39;s/.$//&#39;</code></pre>
+</div>
+<p>4. exploratory data analysis</p>
+<p>- consists of building tools to visualize the raw data.</p>

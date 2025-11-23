@@ -1,0 +1,38 @@
+<p>---</p>
+<p>tags:</p>
+<p>- gis</p>
+<p>- data</p>
+<p>- data_classification</p>
+<p>---</p>
+<h4>How to Observe the Data</h4>
+<p>[Source - Cartography Playground](https://cartography-playground.gitlab.io/playgrounds/data-classification-methods/)</p>
+<p>Use a histogram to visualize the frequency table. Four ways to group/bin/class an attribute to visualize the distribution.</p>
+<img src="data_classification_types.png|600" alt="" loading="lazy" decoding="async" />
+<p>###### Equal Interval</p>
+<p>divides the range of attributes values into equal sized bins. Therefore, number elements in each bin can differ</p>
+<p>$$Interval\ Size = \frac{maxX_i - minX_i}{Number\ of\ Classes}$$</p>
+<img src="equal_interval_pros_cons.png|500" alt="" loading="lazy" decoding="async" />
+<p>###### Quantile</p>
+<p>Each class has a equal number of features.</p>
+<p>$$Number\ of\ Elements\ per\ class = \frac{Total\ Number\ of\ Elements}{Number\ of\ Quantiles}$$</p>
+<h5>Quantile versus Equal Interval(EI)</h5>
+<p>EI binning is based on the min/max (range) of the data, while quantile is based off the count of the features</p>
+<p>###### Jenks</p>
+<p>"the Jenks classification is not recommended for data that have a low variance" - [Wikipedia](https://en.wikipedia.org/wiki/Jenks_natural_breaks_optimization#Use_in_cartography)</p>
+<p>###### Standard Deviation</p>
+<p>- A measure of dispersion</p>
+<p>- Low SD means data is tight and much variation from the mean (expected value)</p>
+<p>- High SD values are spread out</p>
+<p>Population Formula below</p>
+<p>$$SD\ =\ \sqrt{\frac{\Sigma {\\|x-\mu\\|}^2}{N}}$$</p>
+<p>"For a finite set of numbers, the population standard deviation is found by taking the square root of the average of the squared deviations of the values subtracted from their average value."</p>
+<h3>Normalization</h3>
+<p>think, does pure count have valid/meaningful comparison?</p>
+<p>What should we normalize (divide) by</p>
+<h5>Douglas-Peucker Algorithm</h5>
+<p>Visualization at [Cartography Playground](https://cartography-playground.gitlab.io/playgrounds/douglas-peucker-algorithm/)</p>
+<p>_"iterative end point fit"_ - Sungsoon Hwang</p>
+<p>Broadly, it smoothes poly-lines by reducing the number of points. This will preserve the rough shape of the object</p>
+<h4>Ordinal or Nominal Data</h4>
+<p>Ordinal - Can be "ordered"</p>
+<p>Nominal - Categorical Data with no rank (order)</p>

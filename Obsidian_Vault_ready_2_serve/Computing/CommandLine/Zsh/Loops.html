@@ -1,0 +1,12 @@
+<p>---</p>
+<p>tags: [loops, zsh, linux, command_line, iteration, c_shell, foreach]</p>
+<p>---</p>
+<p>Copy all files not directories and rename.</p>
+<div class="code-wrapper">
+    <button class="copy-btn">Copy Code</button>
+    <pre><code class="language-shell">for f in *
+do
+	echo &quot;copying ${f} to OLD-${f}&quot;
+	cp -i &quot;${f}&quot; &quot;OLD-${f}&quot;
+done</code></pre>
+</div>

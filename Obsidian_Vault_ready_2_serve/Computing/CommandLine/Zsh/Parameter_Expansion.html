@@ -1,0 +1,28 @@
+<p>---</p>
+<p>tags: zsh, variables, shell, parameter_exspansion</p>
+<p>---</p>
+<h5>Removing character (singular)</h5>
+<p>given the assignment,</p>
+<p>`$ x=./screens/location_detail/text_section.dart`</p>
+<p>task, remove the leading period</p>
+<p>`$ echo ${x#./}`</p>
+<p>`screens/location_detail/text_section.dart`</p>
+<h3>**General Rules**</h3>
+<h5>Replacing Sub-strings</h5>
+<p>- `${VAR/pattern/replacement}`: Replaces the first occurrence of `pattern` in `VAR` with `replacement`.</p>
+<p>- `${VAR//pattern/replacement}`: Replaces all occurrences of `pattern` in `VAR` with `replacement`.</p>
+<p>- `${VAR/#pattern/replacement}`: Replaces `pattern` at the beginning of `VAR` with `replacement`.</p>
+<p>- `${VAR/%pattern/replacement}`: Replaces `pattern` at the end of `VAR` with `replacement`.</p>
+<h5>Default Values</h5>
+<p>- `${VAR:-default}`: Use `default` if `VAR` is unset or null.</p>
+<p>- `${VAR:=default}`: Assign `default` to `VAR` if `VAR` is unset or null.</p>
+<p>- `${VAR:+value}`: Use `value` if `VAR` is set.</p>
+<p>- `${VAR:?message}`: Display an error message if `VAR` is unset or null.</p>
+<h5>Indirection</h5>
+<p>`${!VAR}`: Use the value of the variable whose name is the value of `VAR`</p>
+<div class="code-wrapper">
+    <button class="copy-btn">Copy Code</button>
+    <pre><code class="language-zsh">ref=&quot;foo&quot;
+foo=&quot;bar&quot;
+echo ${!ref}  # Output: bar (the value of the variable named in ref)</code></pre>
+</div>

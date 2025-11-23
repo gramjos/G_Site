@@ -1,0 +1,1554 @@
+{
+  "source": "/Users/gramjos/Obsidian_Vault",
+  "output": "/Users/gramjos/Computation/cloud-pages/G_Site/Obsidian_Vault_ready_2_serve",
+  "publicPath": "/Obsidian_Vault_ready_2_serve",
+  "generatedAt": "2025-11-23T20:44:44.610741+00:00",
+  "version": 1,
+  "root": {
+    "type": "directory",
+    "name": "Obsidian_Vault",
+    "title": "Notes",
+    "slug": "",
+    "slugPath": "",
+    "readme": {
+      "source": "README.md",
+      "html": "README.html"
+    },
+    "breadcrumbs": [],
+    "directories": [
+      {
+        "type": "directory",
+        "name": "Computing",
+        "title": "Computing",
+        "slug": "computing",
+        "slugPath": "computing",
+        "readme": {
+          "source": "Computing/README.md",
+          "html": "Computing/README.html"
+        },
+        "breadcrumbs": [
+          {
+            "title": "Notes",
+            "slugPath": ""
+          }
+        ],
+        "directories": [
+          {
+            "type": "directory",
+            "name": "CommandLine",
+            "title": "Commandline",
+            "slug": "commandline",
+            "slugPath": "computing/commandline",
+            "readme": {
+              "source": "Computing/CommandLine/README.md",
+              "html": "Computing/CommandLine/README.html"
+            },
+            "breadcrumbs": [
+              {
+                "title": "Notes",
+                "slugPath": ""
+              },
+              {
+                "title": "Computing",
+                "slugPath": "computing"
+              }
+            ],
+            "directories": [
+              {
+                "type": "directory",
+                "name": "Zsh",
+                "title": "Zsh",
+                "slug": "zsh",
+                "slugPath": "computing/commandline/zsh",
+                "readme": {
+                  "source": "Computing/CommandLine/Zsh/README.md",
+                  "html": "Computing/CommandLine/Zsh/README.html"
+                },
+                "breadcrumbs": [
+                  {
+                    "title": "Notes",
+                    "slugPath": ""
+                  },
+                  {
+                    "title": "Computing",
+                    "slugPath": "computing"
+                  },
+                  {
+                    "title": "Commandline",
+                    "slugPath": "computing/commandline"
+                  }
+                ],
+                "directories": [],
+                "files": [
+                  {
+                    "type": "file",
+                    "name": "Builtins.md",
+                    "title": "Builtins",
+                    "slug": "builtins",
+                    "slugPath": "computing/commandline/zsh/builtins",
+                    "source": "Computing/CommandLine/Zsh/Builtins.md",
+                    "html": "Computing/CommandLine/Zsh/Builtins.html",
+                    "breadcrumbs": [
+                      {
+                        "title": "Notes",
+                        "slugPath": ""
+                      },
+                      {
+                        "title": "Computing",
+                        "slugPath": "computing"
+                      },
+                      {
+                        "title": "Commandline",
+                        "slugPath": "computing/commandline"
+                      },
+                      {
+                        "title": "Zsh",
+                        "slugPath": "computing/commandline/zsh"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "file",
+                    "name": "Glossary.md",
+                    "title": "Glossary",
+                    "slug": "glossary",
+                    "slugPath": "computing/commandline/zsh/glossary",
+                    "source": "Computing/CommandLine/Zsh/Glossary.md",
+                    "html": "Computing/CommandLine/Zsh/Glossary.html",
+                    "breadcrumbs": [
+                      {
+                        "title": "Notes",
+                        "slugPath": ""
+                      },
+                      {
+                        "title": "Computing",
+                        "slugPath": "computing"
+                      },
+                      {
+                        "title": "Commandline",
+                        "slugPath": "computing/commandline"
+                      },
+                      {
+                        "title": "Zsh",
+                        "slugPath": "computing/commandline/zsh"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "file",
+                    "name": "Help.md",
+                    "title": "Help",
+                    "slug": "help",
+                    "slugPath": "computing/commandline/zsh/help",
+                    "source": "Computing/CommandLine/Zsh/Help.md",
+                    "html": "Computing/CommandLine/Zsh/Help.html",
+                    "breadcrumbs": [
+                      {
+                        "title": "Notes",
+                        "slugPath": ""
+                      },
+                      {
+                        "title": "Computing",
+                        "slugPath": "computing"
+                      },
+                      {
+                        "title": "Commandline",
+                        "slugPath": "computing/commandline"
+                      },
+                      {
+                        "title": "Zsh",
+                        "slugPath": "computing/commandline/zsh"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "file",
+                    "name": "Loops.md",
+                    "title": "Loops",
+                    "slug": "loops",
+                    "slugPath": "computing/commandline/zsh/loops",
+                    "source": "Computing/CommandLine/Zsh/Loops.md",
+                    "html": "Computing/CommandLine/Zsh/Loops.html",
+                    "breadcrumbs": [
+                      {
+                        "title": "Notes",
+                        "slugPath": ""
+                      },
+                      {
+                        "title": "Computing",
+                        "slugPath": "computing"
+                      },
+                      {
+                        "title": "Commandline",
+                        "slugPath": "computing/commandline"
+                      },
+                      {
+                        "title": "Zsh",
+                        "slugPath": "computing/commandline/zsh"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "file",
+                    "name": "Parameter_Expansion.md",
+                    "title": "Parameter Expansion",
+                    "slug": "parameter-expansion",
+                    "slugPath": "computing/commandline/zsh/parameter-expansion",
+                    "source": "Computing/CommandLine/Zsh/Parameter_Expansion.md",
+                    "html": "Computing/CommandLine/Zsh/Parameter_Expansion.html",
+                    "breadcrumbs": [
+                      {
+                        "title": "Notes",
+                        "slugPath": ""
+                      },
+                      {
+                        "title": "Computing",
+                        "slugPath": "computing"
+                      },
+                      {
+                        "title": "Commandline",
+                        "slugPath": "computing/commandline"
+                      },
+                      {
+                        "title": "Zsh",
+                        "slugPath": "computing/commandline/zsh"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "file",
+                    "name": "Pipeline_example.md",
+                    "title": "Pipeline Example",
+                    "slug": "pipeline-example",
+                    "slugPath": "computing/commandline/zsh/pipeline-example",
+                    "source": "Computing/CommandLine/Zsh/Pipeline_example.md",
+                    "html": "Computing/CommandLine/Zsh/Pipeline_example.html",
+                    "breadcrumbs": [
+                      {
+                        "title": "Notes",
+                        "slugPath": ""
+                      },
+                      {
+                        "title": "Computing",
+                        "slugPath": "computing"
+                      },
+                      {
+                        "title": "Commandline",
+                        "slugPath": "computing/commandline"
+                      },
+                      {
+                        "title": "Zsh",
+                        "slugPath": "computing/commandline/zsh"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "file",
+                    "name": "Processes.md",
+                    "title": "Processes",
+                    "slug": "processes",
+                    "slugPath": "computing/commandline/zsh/processes",
+                    "source": "Computing/CommandLine/Zsh/Processes.md",
+                    "html": "Computing/CommandLine/Zsh/Processes.html",
+                    "breadcrumbs": [
+                      {
+                        "title": "Notes",
+                        "slugPath": ""
+                      },
+                      {
+                        "title": "Computing",
+                        "slugPath": "computing"
+                      },
+                      {
+                        "title": "Commandline",
+                        "slugPath": "computing/commandline"
+                      },
+                      {
+                        "title": "Zsh",
+                        "slugPath": "computing/commandline/zsh"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "file",
+                    "name": "Shell_Intro.md",
+                    "title": "Shell Intro",
+                    "slug": "shell-intro",
+                    "slugPath": "computing/commandline/zsh/shell-intro",
+                    "source": "Computing/CommandLine/Zsh/Shell_Intro.md",
+                    "html": "Computing/CommandLine/Zsh/Shell_Intro.html",
+                    "breadcrumbs": [
+                      {
+                        "title": "Notes",
+                        "slugPath": ""
+                      },
+                      {
+                        "title": "Computing",
+                        "slugPath": "computing"
+                      },
+                      {
+                        "title": "Commandline",
+                        "slugPath": "computing/commandline"
+                      },
+                      {
+                        "title": "Zsh",
+                        "slugPath": "computing/commandline/zsh"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "file",
+                    "name": "Types_of_Commands.md",
+                    "title": "Types Of Commands",
+                    "slug": "types-of-commands",
+                    "slugPath": "computing/commandline/zsh/types-of-commands",
+                    "source": "Computing/CommandLine/Zsh/Types_of_Commands.md",
+                    "html": "Computing/CommandLine/Zsh/Types_of_Commands.html",
+                    "breadcrumbs": [
+                      {
+                        "title": "Notes",
+                        "slugPath": ""
+                      },
+                      {
+                        "title": "Computing",
+                        "slugPath": "computing"
+                      },
+                      {
+                        "title": "Commandline",
+                        "slugPath": "computing/commandline"
+                      },
+                      {
+                        "title": "Zsh",
+                        "slugPath": "computing/commandline/zsh"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "file",
+                    "name": "Variables.md",
+                    "title": "Variables",
+                    "slug": "variables",
+                    "slugPath": "computing/commandline/zsh/variables",
+                    "source": "Computing/CommandLine/Zsh/Variables.md",
+                    "html": "Computing/CommandLine/Zsh/Variables.html",
+                    "breadcrumbs": [
+                      {
+                        "title": "Notes",
+                        "slugPath": ""
+                      },
+                      {
+                        "title": "Computing",
+                        "slugPath": "computing"
+                      },
+                      {
+                        "title": "Commandline",
+                        "slugPath": "computing/commandline"
+                      },
+                      {
+                        "title": "Zsh",
+                        "slugPath": "computing/commandline/zsh"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "files": [
+              {
+                "type": "file",
+                "name": "Convert.md",
+                "title": "Convert",
+                "slug": "convert",
+                "slugPath": "computing/commandline/convert",
+                "source": "Computing/CommandLine/Convert.md",
+                "html": "Computing/CommandLine/Convert.html",
+                "breadcrumbs": [
+                  {
+                    "title": "Notes",
+                    "slugPath": ""
+                  },
+                  {
+                    "title": "Computing",
+                    "slugPath": "computing"
+                  },
+                  {
+                    "title": "Commandline",
+                    "slugPath": "computing/commandline"
+                  }
+                ]
+              },
+              {
+                "type": "file",
+                "name": "ctags.md",
+                "title": "Ctags",
+                "slug": "ctags",
+                "slugPath": "computing/commandline/ctags",
+                "source": "Computing/CommandLine/ctags.md",
+                "html": "Computing/CommandLine/ctags.html",
+                "breadcrumbs": [
+                  {
+                    "title": "Notes",
+                    "slugPath": ""
+                  },
+                  {
+                    "title": "Computing",
+                    "slugPath": "computing"
+                  },
+                  {
+                    "title": "Commandline",
+                    "slugPath": "computing/commandline"
+                  }
+                ]
+              },
+              {
+                "type": "file",
+                "name": "yt-dlp.md",
+                "title": "Yt Dlp",
+                "slug": "yt-dlp",
+                "slugPath": "computing/commandline/yt-dlp",
+                "source": "Computing/CommandLine/yt-dlp.md",
+                "html": "Computing/CommandLine/yt-dlp.html",
+                "breadcrumbs": [
+                  {
+                    "title": "Notes",
+                    "slugPath": ""
+                  },
+                  {
+                    "title": "Computing",
+                    "slugPath": "computing"
+                  },
+                  {
+                    "title": "Commandline",
+                    "slugPath": "computing/commandline"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "directory",
+            "name": "Data",
+            "title": "Data",
+            "slug": "data",
+            "slugPath": "computing/data",
+            "readme": {
+              "source": "Computing/Data/README.md",
+              "html": "Computing/Data/README.html"
+            },
+            "breadcrumbs": [
+              {
+                "title": "Notes",
+                "slugPath": ""
+              },
+              {
+                "title": "Computing",
+                "slugPath": "computing"
+              }
+            ],
+            "directories": [
+              {
+                "type": "directory",
+                "name": "beginnerPytorchOpenCV",
+                "title": "Beginnerpytorchopencv",
+                "slug": "beginnerpytorchopencv",
+                "slugPath": "computing/data/beginnerpytorchopencv",
+                "readme": {
+                  "source": "Computing/Data/beginnerPytorchOpenCV/README.md",
+                  "html": "Computing/Data/beginnerPytorchOpenCV/README.html"
+                },
+                "breadcrumbs": [
+                  {
+                    "title": "Notes",
+                    "slugPath": ""
+                  },
+                  {
+                    "title": "Computing",
+                    "slugPath": "computing"
+                  },
+                  {
+                    "title": "Data",
+                    "slugPath": "computing/data"
+                  }
+                ],
+                "directories": [],
+                "files": [
+                  {
+                    "type": "file",
+                    "name": "Intro, Tensors.md",
+                    "title": "Intro, Tensors",
+                    "slug": "intro-tensors",
+                    "slugPath": "computing/data/beginnerpytorchopencv/intro-tensors",
+                    "source": "Computing/Data/beginnerPytorchOpenCV/Intro, Tensors.md",
+                    "html": "Computing/Data/beginnerPytorchOpenCV/Intro, Tensors.html",
+                    "breadcrumbs": [
+                      {
+                        "title": "Notes",
+                        "slugPath": ""
+                      },
+                      {
+                        "title": "Computing",
+                        "slugPath": "computing"
+                      },
+                      {
+                        "title": "Data",
+                        "slugPath": "computing/data"
+                      },
+                      {
+                        "title": "Beginnerpytorchopencv",
+                        "slugPath": "computing/data/beginnerpytorchopencv"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "directory",
+                "name": "Design_LLM_App_S_Pai",
+                "title": "Design Llm App S Pai",
+                "slug": "design-llm-app-s-pai",
+                "slugPath": "computing/data/design-llm-app-s-pai",
+                "readme": {
+                  "source": "Computing/Data/Design_LLM_App_S_Pai/README.md",
+                  "html": "Computing/Data/Design_LLM_App_S_Pai/README.html"
+                },
+                "breadcrumbs": [
+                  {
+                    "title": "Notes",
+                    "slugPath": ""
+                  },
+                  {
+                    "title": "Computing",
+                    "slugPath": "computing"
+                  },
+                  {
+                    "title": "Data",
+                    "slugPath": "computing/data"
+                  }
+                ],
+                "directories": [],
+                "files": [
+                  {
+                    "type": "file",
+                    "name": "Untitled.md",
+                    "title": "Untitled",
+                    "slug": "untitled",
+                    "slugPath": "computing/data/design-llm-app-s-pai/untitled",
+                    "source": "Computing/Data/Design_LLM_App_S_Pai/Untitled.md",
+                    "html": "Computing/Data/Design_LLM_App_S_Pai/Untitled.html",
+                    "breadcrumbs": [
+                      {
+                        "title": "Notes",
+                        "slugPath": ""
+                      },
+                      {
+                        "title": "Computing",
+                        "slugPath": "computing"
+                      },
+                      {
+                        "title": "Data",
+                        "slugPath": "computing/data"
+                      },
+                      {
+                        "title": "Design Llm App S Pai",
+                        "slugPath": "computing/data/design-llm-app-s-pai"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "directory",
+                "name": "DocAI_course",
+                "title": "Docai Course",
+                "slug": "docai-course",
+                "slugPath": "computing/data/docai-course",
+                "readme": {
+                  "source": "Computing/Data/DocAI_course/README.md",
+                  "html": "Computing/Data/DocAI_course/README.html"
+                },
+                "breadcrumbs": [
+                  {
+                    "title": "Notes",
+                    "slugPath": ""
+                  },
+                  {
+                    "title": "Computing",
+                    "slugPath": "computing"
+                  },
+                  {
+                    "title": "Data",
+                    "slugPath": "computing/data"
+                  }
+                ],
+                "directories": [],
+                "files": [
+                  {
+                    "type": "file",
+                    "name": "intro.md",
+                    "title": "Intro",
+                    "slug": "intro",
+                    "slugPath": "computing/data/docai-course/intro",
+                    "source": "Computing/Data/DocAI_course/intro.md",
+                    "html": "Computing/Data/DocAI_course/intro.html",
+                    "breadcrumbs": [
+                      {
+                        "title": "Notes",
+                        "slugPath": ""
+                      },
+                      {
+                        "title": "Computing",
+                        "slugPath": "computing"
+                      },
+                      {
+                        "title": "Data",
+                        "slugPath": "computing/data"
+                      },
+                      {
+                        "title": "Docai Course",
+                        "slugPath": "computing/data/docai-course"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "directory",
+                "name": "KarpathyNN_Zero2Hero",
+                "title": "Karpathynn Zero2hero",
+                "slug": "karpathynn-zero2hero",
+                "slugPath": "computing/data/karpathynn-zero2hero",
+                "readme": {
+                  "source": "Computing/Data/KarpathyNN_Zero2Hero/README.md",
+                  "html": "Computing/Data/KarpathyNN_Zero2Hero/README.html"
+                },
+                "breadcrumbs": [
+                  {
+                    "title": "Notes",
+                    "slugPath": ""
+                  },
+                  {
+                    "title": "Computing",
+                    "slugPath": "computing"
+                  },
+                  {
+                    "title": "Data",
+                    "slugPath": "computing/data"
+                  }
+                ],
+                "directories": [],
+                "files": [
+                  {
+                    "type": "file",
+                    "name": "Untitled.md",
+                    "title": "Untitled",
+                    "slug": "untitled",
+                    "slugPath": "computing/data/karpathynn-zero2hero/untitled",
+                    "source": "Computing/Data/KarpathyNN_Zero2Hero/Untitled.md",
+                    "html": "Computing/Data/KarpathyNN_Zero2Hero/Untitled.html",
+                    "breadcrumbs": [
+                      {
+                        "title": "Notes",
+                        "slugPath": ""
+                      },
+                      {
+                        "title": "Computing",
+                        "slugPath": "computing"
+                      },
+                      {
+                        "title": "Data",
+                        "slugPath": "computing/data"
+                      },
+                      {
+                        "title": "Karpathynn Zero2hero",
+                        "slugPath": "computing/data/karpathynn-zero2hero"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "directory",
+                "name": "KnowledgeGraph_SpringerBrief",
+                "title": "Knowledgegraph Springerbrief",
+                "slug": "knowledgegraph-springerbrief",
+                "slugPath": "computing/data/knowledgegraph-springerbrief",
+                "readme": {
+                  "source": "Computing/Data/KnowledgeGraph_SpringerBrief/README.md",
+                  "html": "Computing/Data/KnowledgeGraph_SpringerBrief/README.html"
+                },
+                "breadcrumbs": [
+                  {
+                    "title": "Notes",
+                    "slugPath": ""
+                  },
+                  {
+                    "title": "Computing",
+                    "slugPath": "computing"
+                  },
+                  {
+                    "title": "Data",
+                    "slugPath": "computing/data"
+                  }
+                ],
+                "directories": [],
+                "files": []
+              },
+              {
+                "type": "directory",
+                "name": "NoBlackBox_Radu",
+                "title": "Noblackbox Radu",
+                "slug": "noblackbox-radu",
+                "slugPath": "computing/data/noblackbox-radu",
+                "readme": {
+                  "source": "Computing/Data/NoBlackBox_Radu/README.md",
+                  "html": "Computing/Data/NoBlackBox_Radu/README.html"
+                },
+                "breadcrumbs": [
+                  {
+                    "title": "Notes",
+                    "slugPath": ""
+                  },
+                  {
+                    "title": "Computing",
+                    "slugPath": "computing"
+                  },
+                  {
+                    "title": "Data",
+                    "slugPath": "computing/data"
+                  }
+                ],
+                "directories": [],
+                "files": [
+                  {
+                    "type": "file",
+                    "name": "CSS Lang.md",
+                    "title": "Css Lang",
+                    "slug": "css-lang",
+                    "slugPath": "computing/data/noblackbox-radu/css-lang",
+                    "source": "Computing/Data/NoBlackBox_Radu/CSS Lang.md",
+                    "html": "Computing/Data/NoBlackBox_Radu/CSS Lang.html",
+                    "breadcrumbs": [
+                      {
+                        "title": "Notes",
+                        "slugPath": ""
+                      },
+                      {
+                        "title": "Computing",
+                        "slugPath": "computing"
+                      },
+                      {
+                        "title": "Data",
+                        "slugPath": "computing/data"
+                      },
+                      {
+                        "title": "Noblackbox Radu",
+                        "slugPath": "computing/data/noblackbox-radu"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "file",
+                    "name": "JS Lang.md",
+                    "title": "Js Lang",
+                    "slug": "js-lang",
+                    "slugPath": "computing/data/noblackbox-radu/js-lang",
+                    "source": "Computing/Data/NoBlackBox_Radu/JS Lang.md",
+                    "html": "Computing/Data/NoBlackBox_Radu/JS Lang.html",
+                    "breadcrumbs": [
+                      {
+                        "title": "Notes",
+                        "slugPath": ""
+                      },
+                      {
+                        "title": "Computing",
+                        "slugPath": "computing"
+                      },
+                      {
+                        "title": "Data",
+                        "slugPath": "computing/data"
+                      },
+                      {
+                        "title": "Noblackbox Radu",
+                        "slugPath": "computing/data/noblackbox-radu"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "file",
+                    "name": "present_draw_class_dev.excalidraw.md",
+                    "title": "Present Draw Class Dev.excalidraw",
+                    "slug": "present-draw-class-dev-excalidraw",
+                    "slugPath": "computing/data/noblackbox-radu/present-draw-class-dev-excalidraw",
+                    "source": "Computing/Data/NoBlackBox_Radu/present_draw_class_dev.excalidraw.md",
+                    "html": "Computing/Data/NoBlackBox_Radu/present_draw_class_dev.excalidraw.html",
+                    "breadcrumbs": [
+                      {
+                        "title": "Notes",
+                        "slugPath": ""
+                      },
+                      {
+                        "title": "Computing",
+                        "slugPath": "computing"
+                      },
+                      {
+                        "title": "Data",
+                        "slugPath": "computing/data"
+                      },
+                      {
+                        "title": "Noblackbox Radu",
+                        "slugPath": "computing/data/noblackbox-radu"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "file",
+                    "name": "quick draw data engineering.md",
+                    "title": "Quick Draw Data Engineering",
+                    "slug": "quick-draw-data-engineering",
+                    "slugPath": "computing/data/noblackbox-radu/quick-draw-data-engineering",
+                    "source": "Computing/Data/NoBlackBox_Radu/quick draw data engineering.md",
+                    "html": "Computing/Data/NoBlackBox_Radu/quick draw data engineering.html",
+                    "breadcrumbs": [
+                      {
+                        "title": "Notes",
+                        "slugPath": ""
+                      },
+                      {
+                        "title": "Computing",
+                        "slugPath": "computing"
+                      },
+                      {
+                        "title": "Data",
+                        "slugPath": "computing/data"
+                      },
+                      {
+                        "title": "Noblackbox Radu",
+                        "slugPath": "computing/data/noblackbox-radu"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "directory",
+                "name": "Vision Pytorch Reddy",
+                "title": "Vision Pytorch Reddy",
+                "slug": "vision-pytorch-reddy",
+                "slugPath": "computing/data/vision-pytorch-reddy",
+                "readme": {
+                  "source": "Computing/Data/Vision Pytorch Reddy/README.md",
+                  "html": "Computing/Data/Vision Pytorch Reddy/README.html"
+                },
+                "breadcrumbs": [
+                  {
+                    "title": "Notes",
+                    "slugPath": ""
+                  },
+                  {
+                    "title": "Computing",
+                    "slugPath": "computing"
+                  },
+                  {
+                    "title": "Data",
+                    "slugPath": "computing/data"
+                  }
+                ],
+                "directories": [],
+                "files": [
+                  {
+                    "type": "file",
+                    "name": "Fundamentals.md",
+                    "title": "Fundamentals",
+                    "slug": "fundamentals",
+                    "slugPath": "computing/data/vision-pytorch-reddy/fundamentals",
+                    "source": "Computing/Data/Vision Pytorch Reddy/Fundamentals.md",
+                    "html": "Computing/Data/Vision Pytorch Reddy/Fundamentals.html",
+                    "breadcrumbs": [
+                      {
+                        "title": "Notes",
+                        "slugPath": ""
+                      },
+                      {
+                        "title": "Computing",
+                        "slugPath": "computing"
+                      },
+                      {
+                        "title": "Data",
+                        "slugPath": "computing/data"
+                      },
+                      {
+                        "title": "Vision Pytorch Reddy",
+                        "slugPath": "computing/data/vision-pytorch-reddy"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "file",
+                    "name": "nn_tmp 1.excalidraw.md",
+                    "title": "Nn Tmp 1.excalidraw",
+                    "slug": "nn-tmp-1-excalidraw",
+                    "slugPath": "computing/data/vision-pytorch-reddy/nn-tmp-1-excalidraw",
+                    "source": "Computing/Data/Vision Pytorch Reddy/nn_tmp 1.excalidraw.md",
+                    "html": "Computing/Data/Vision Pytorch Reddy/nn_tmp 1.excalidraw.html",
+                    "breadcrumbs": [
+                      {
+                        "title": "Notes",
+                        "slugPath": ""
+                      },
+                      {
+                        "title": "Computing",
+                        "slugPath": "computing"
+                      },
+                      {
+                        "title": "Data",
+                        "slugPath": "computing/data"
+                      },
+                      {
+                        "title": "Vision Pytorch Reddy",
+                        "slugPath": "computing/data/vision-pytorch-reddy"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "file",
+                    "name": "nn_tmp.excalidraw.md",
+                    "title": "Nn Tmp.excalidraw",
+                    "slug": "nn-tmp-excalidraw",
+                    "slugPath": "computing/data/vision-pytorch-reddy/nn-tmp-excalidraw",
+                    "source": "Computing/Data/Vision Pytorch Reddy/nn_tmp.excalidraw.md",
+                    "html": "Computing/Data/Vision Pytorch Reddy/nn_tmp.excalidraw.html",
+                    "breadcrumbs": [
+                      {
+                        "title": "Notes",
+                        "slugPath": ""
+                      },
+                      {
+                        "title": "Computing",
+                        "slugPath": "computing"
+                      },
+                      {
+                        "title": "Data",
+                        "slugPath": "computing/data"
+                      },
+                      {
+                        "title": "Vision Pytorch Reddy",
+                        "slugPath": "computing/data/vision-pytorch-reddy"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "file",
+                    "name": "q.md",
+                    "title": "Q",
+                    "slug": "q",
+                    "slugPath": "computing/data/vision-pytorch-reddy/q",
+                    "source": "Computing/Data/Vision Pytorch Reddy/q.md",
+                    "html": "Computing/Data/Vision Pytorch Reddy/q.html",
+                    "breadcrumbs": [
+                      {
+                        "title": "Notes",
+                        "slugPath": ""
+                      },
+                      {
+                        "title": "Computing",
+                        "slugPath": "computing"
+                      },
+                      {
+                        "title": "Data",
+                        "slugPath": "computing/data"
+                      },
+                      {
+                        "title": "Vision Pytorch Reddy",
+                        "slugPath": "computing/data/vision-pytorch-reddy"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "files": [
+              {
+                "type": "file",
+                "name": "Parametric and Non-parametric Algorithms.md",
+                "title": "Parametric And Non Parametric Algorithms",
+                "slug": "parametric-and-non-parametric-algorithms",
+                "slugPath": "computing/data/parametric-and-non-parametric-algorithms",
+                "source": "Computing/Data/Parametric and Non-parametric Algorithms.md",
+                "html": "Computing/Data/Parametric and Non-parametric Algorithms.html",
+                "breadcrumbs": [
+                  {
+                    "title": "Notes",
+                    "slugPath": ""
+                  },
+                  {
+                    "title": "Computing",
+                    "slugPath": "computing"
+                  },
+                  {
+                    "title": "Data",
+                    "slugPath": "computing/data"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "directory",
+            "name": "marimo_notebooks",
+            "title": "Marimo Notebooks",
+            "slug": "marimo-notebooks",
+            "slugPath": "computing/marimo-notebooks",
+            "readme": {
+              "source": "Computing/marimo_notebooks/README.md",
+              "html": "Computing/marimo_notebooks/README.html"
+            },
+            "breadcrumbs": [
+              {
+                "title": "Notes",
+                "slugPath": ""
+              },
+              {
+                "title": "Computing",
+                "slugPath": "computing"
+              }
+            ],
+            "directories": [],
+            "files": []
+          }
+        ],
+        "files": []
+      },
+      {
+        "type": "directory",
+        "name": "GIS",
+        "title": "Gis",
+        "slug": "gis",
+        "slugPath": "gis",
+        "readme": {
+          "source": "GIS/README.md",
+          "html": "GIS/README.html"
+        },
+        "breadcrumbs": [
+          {
+            "title": "Notes",
+            "slugPath": ""
+          }
+        ],
+        "directories": [],
+        "files": [
+          {
+            "type": "file",
+            "name": "ArcGIS_Pro.md",
+            "title": "Arcgis Pro",
+            "slug": "arcgis-pro",
+            "slugPath": "gis/arcgis-pro",
+            "source": "GIS/ArcGIS_Pro.md",
+            "html": "GIS/ArcGIS_Pro.html",
+            "breadcrumbs": [
+              {
+                "title": "Notes",
+                "slugPath": ""
+              },
+              {
+                "title": "Gis",
+                "slugPath": "gis"
+              }
+            ]
+          },
+          {
+            "type": "file",
+            "name": "Data Classification.md",
+            "title": "Data Classification",
+            "slug": "data-classification",
+            "slugPath": "gis/data-classification",
+            "source": "GIS/Data Classification.md",
+            "html": "GIS/Data Classification.html",
+            "breadcrumbs": [
+              {
+                "title": "Notes",
+                "slugPath": ""
+              },
+              {
+                "title": "Gis",
+                "slugPath": "gis"
+              }
+            ]
+          },
+          {
+            "type": "file",
+            "name": "Data Models.md",
+            "title": "Data Models",
+            "slug": "data-models",
+            "slugPath": "gis/data-models",
+            "source": "GIS/Data Models.md",
+            "html": "GIS/Data Models.html",
+            "breadcrumbs": [
+              {
+                "title": "Notes",
+                "slugPath": ""
+              },
+              {
+                "title": "Gis",
+                "slugPath": "gis"
+              }
+            ]
+          },
+          {
+            "type": "file",
+            "name": "File Types.md",
+            "title": "File Types",
+            "slug": "file-types",
+            "slugPath": "gis/file-types",
+            "source": "GIS/File Types.md",
+            "html": "GIS/File Types.html",
+            "breadcrumbs": [
+              {
+                "title": "Notes",
+                "slugPath": ""
+              },
+              {
+                "title": "Gis",
+                "slugPath": "gis"
+              }
+            ]
+          },
+          {
+            "type": "file",
+            "name": "Geographic Coordinate System.md",
+            "title": "Geographic Coordinate System",
+            "slug": "geographic-coordinate-system",
+            "slugPath": "gis/geographic-coordinate-system",
+            "source": "GIS/Geographic Coordinate System.md",
+            "html": "GIS/Geographic Coordinate System.html",
+            "breadcrumbs": [
+              {
+                "title": "Notes",
+                "slugPath": ""
+              },
+              {
+                "title": "Gis",
+                "slugPath": "gis"
+              }
+            ]
+          },
+          {
+            "type": "file",
+            "name": "Installing Software Environment.md",
+            "title": "Installing Software Environment",
+            "slug": "installing-software-environment",
+            "slugPath": "gis/installing-software-environment",
+            "source": "GIS/Installing Software Environment.md",
+            "html": "GIS/Installing Software Environment.html",
+            "breadcrumbs": [
+              {
+                "title": "Notes",
+                "slugPath": ""
+              },
+              {
+                "title": "Gis",
+                "slugPath": "gis"
+              }
+            ]
+          },
+          {
+            "type": "file",
+            "name": "Introduction to GIS.md",
+            "title": "Introduction To Gis",
+            "slug": "introduction-to-gis",
+            "slugPath": "gis/introduction-to-gis",
+            "source": "GIS/Introduction to GIS.md",
+            "html": "GIS/Introduction to GIS.html",
+            "breadcrumbs": [
+              {
+                "title": "Notes",
+                "slugPath": ""
+              },
+              {
+                "title": "Gis",
+                "slugPath": "gis"
+              }
+            ]
+          },
+          {
+            "type": "file",
+            "name": "Map Design.md",
+            "title": "Map Design",
+            "slug": "map-design",
+            "slugPath": "gis/map-design",
+            "source": "GIS/Map Design.md",
+            "html": "GIS/Map Design.html",
+            "breadcrumbs": [
+              {
+                "title": "Notes",
+                "slugPath": ""
+              },
+              {
+                "title": "Gis",
+                "slugPath": "gis"
+              }
+            ]
+          },
+          {
+            "type": "file",
+            "name": "Projections.md",
+            "title": "Projections",
+            "slug": "projections",
+            "slugPath": "gis/projections",
+            "source": "GIS/Projections.md",
+            "html": "GIS/Projections.html",
+            "breadcrumbs": [
+              {
+                "title": "Notes",
+                "slugPath": ""
+              },
+              {
+                "title": "Gis",
+                "slugPath": "gis"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "directory",
+        "name": "Interviewing",
+        "title": "Interviewing",
+        "slug": "interviewing",
+        "slugPath": "interviewing",
+        "readme": {
+          "source": "Interviewing/README.md",
+          "html": "Interviewing/README.html"
+        },
+        "breadcrumbs": [
+          {
+            "title": "Notes",
+            "slugPath": ""
+          }
+        ],
+        "directories": [
+          {
+            "type": "directory",
+            "name": "technical questions",
+            "title": "Technical Questions",
+            "slug": "technical-questions",
+            "slugPath": "interviewing/technical-questions",
+            "readme": {
+              "source": "Interviewing/technical questions/README.md",
+              "html": "Interviewing/technical questions/README.html"
+            },
+            "breadcrumbs": [
+              {
+                "title": "Notes",
+                "slugPath": ""
+              },
+              {
+                "title": "Interviewing",
+                "slugPath": "interviewing"
+              }
+            ],
+            "directories": [],
+            "files": [
+              {
+                "type": "file",
+                "name": "Complexity.md",
+                "title": "Complexity",
+                "slug": "complexity",
+                "slugPath": "interviewing/technical-questions/complexity",
+                "source": "Interviewing/technical questions/Complexity.md",
+                "html": "Interviewing/technical questions/Complexity.html",
+                "breadcrumbs": [
+                  {
+                    "title": "Notes",
+                    "slugPath": ""
+                  },
+                  {
+                    "title": "Interviewing",
+                    "slugPath": "interviewing"
+                  },
+                  {
+                    "title": "Technical Questions",
+                    "slugPath": "interviewing/technical-questions"
+                  }
+                ]
+              },
+              {
+                "type": "file",
+                "name": "Concurrency V Parallelism.md",
+                "title": "Concurrency V Parallelism",
+                "slug": "concurrency-v-parallelism",
+                "slugPath": "interviewing/technical-questions/concurrency-v-parallelism",
+                "source": "Interviewing/technical questions/Concurrency V Parallelism.md",
+                "html": "Interviewing/technical questions/Concurrency V Parallelism.html",
+                "breadcrumbs": [
+                  {
+                    "title": "Notes",
+                    "slugPath": ""
+                  },
+                  {
+                    "title": "Interviewing",
+                    "slugPath": "interviewing"
+                  },
+                  {
+                    "title": "Technical Questions",
+                    "slugPath": "interviewing/technical-questions"
+                  }
+                ]
+              },
+              {
+                "type": "file",
+                "name": "Find Prime Factors.md",
+                "title": "Find Prime Factors",
+                "slug": "find-prime-factors",
+                "slugPath": "interviewing/technical-questions/find-prime-factors",
+                "source": "Interviewing/technical questions/Find Prime Factors.md",
+                "html": "Interviewing/technical questions/Find Prime Factors.html",
+                "breadcrumbs": [
+                  {
+                    "title": "Notes",
+                    "slugPath": ""
+                  },
+                  {
+                    "title": "Interviewing",
+                    "slugPath": "interviewing"
+                  },
+                  {
+                    "title": "Technical Questions",
+                    "slugPath": "interviewing/technical-questions"
+                  }
+                ]
+              },
+              {
+                "type": "file",
+                "name": "GIS.md",
+                "title": "Gis",
+                "slug": "gis",
+                "slugPath": "interviewing/technical-questions/gis",
+                "source": "Interviewing/technical questions/GIS.md",
+                "html": "Interviewing/technical questions/GIS.html",
+                "breadcrumbs": [
+                  {
+                    "title": "Notes",
+                    "slugPath": ""
+                  },
+                  {
+                    "title": "Interviewing",
+                    "slugPath": "interviewing"
+                  },
+                  {
+                    "title": "Technical Questions",
+                    "slugPath": "interviewing/technical-questions"
+                  }
+                ]
+              },
+              {
+                "type": "file",
+                "name": "Programming Paradigms.md",
+                "title": "Programming Paradigms",
+                "slug": "programming-paradigms",
+                "slugPath": "interviewing/technical-questions/programming-paradigms",
+                "source": "Interviewing/technical questions/Programming Paradigms.md",
+                "html": "Interviewing/technical questions/Programming Paradigms.html",
+                "breadcrumbs": [
+                  {
+                    "title": "Notes",
+                    "slugPath": ""
+                  },
+                  {
+                    "title": "Interviewing",
+                    "slugPath": "interviewing"
+                  },
+                  {
+                    "title": "Technical Questions",
+                    "slugPath": "interviewing/technical-questions"
+                  }
+                ]
+              },
+              {
+                "type": "file",
+                "name": "Python Threading.md",
+                "title": "Python Threading",
+                "slug": "python-threading",
+                "slugPath": "interviewing/technical-questions/python-threading",
+                "source": "Interviewing/technical questions/Python Threading.md",
+                "html": "Interviewing/technical questions/Python Threading.html",
+                "breadcrumbs": [
+                  {
+                    "title": "Notes",
+                    "slugPath": ""
+                  },
+                  {
+                    "title": "Interviewing",
+                    "slugPath": "interviewing"
+                  },
+                  {
+                    "title": "Technical Questions",
+                    "slugPath": "interviewing/technical-questions"
+                  }
+                ]
+              },
+              {
+                "type": "file",
+                "name": "Python's GIL.md",
+                "title": "Python's Gil",
+                "slug": "python-s-gil",
+                "slugPath": "interviewing/technical-questions/python-s-gil",
+                "source": "Interviewing/technical questions/Python's GIL.md",
+                "html": "Interviewing/technical questions/Python's GIL.html",
+                "breadcrumbs": [
+                  {
+                    "title": "Notes",
+                    "slugPath": ""
+                  },
+                  {
+                    "title": "Interviewing",
+                    "slugPath": "interviewing"
+                  },
+                  {
+                    "title": "Technical Questions",
+                    "slugPath": "interviewing/technical-questions"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "files": [
+          {
+            "type": "file",
+            "name": "Ask the Interviewer.md",
+            "title": "Ask The Interviewer",
+            "slug": "ask-the-interviewer",
+            "slugPath": "interviewing/ask-the-interviewer",
+            "source": "Interviewing/Ask the Interviewer.md",
+            "html": "Interviewing/Ask the Interviewer.html",
+            "breadcrumbs": [
+              {
+                "title": "Notes",
+                "slugPath": ""
+              },
+              {
+                "title": "Interviewing",
+                "slugPath": "interviewing"
+              }
+            ]
+          },
+          {
+            "type": "file",
+            "name": "Asking for the job.md",
+            "title": "Asking For The Job",
+            "slug": "asking-for-the-job",
+            "slugPath": "interviewing/asking-for-the-job",
+            "source": "Interviewing/Asking for the job.md",
+            "html": "Interviewing/Asking for the job.html",
+            "breadcrumbs": [
+              {
+                "title": "Notes",
+                "slugPath": ""
+              },
+              {
+                "title": "Interviewing",
+                "slugPath": "interviewing"
+              }
+            ]
+          },
+          {
+            "type": "file",
+            "name": "Behavior Questions.md",
+            "title": "Behavior Questions",
+            "slug": "behavior-questions",
+            "slugPath": "interviewing/behavior-questions",
+            "source": "Interviewing/Behavior Questions.md",
+            "html": "Interviewing/Behavior Questions.html",
+            "breadcrumbs": [
+              {
+                "title": "Notes",
+                "slugPath": ""
+              },
+              {
+                "title": "Interviewing",
+                "slugPath": "interviewing"
+              }
+            ]
+          },
+          {
+            "type": "file",
+            "name": "BuildingPoint.md",
+            "title": "Buildingpoint",
+            "slug": "buildingpoint",
+            "slugPath": "interviewing/buildingpoint",
+            "source": "Interviewing/BuildingPoint.md",
+            "html": "Interviewing/BuildingPoint.html",
+            "breadcrumbs": [
+              {
+                "title": "Notes",
+                "slugPath": ""
+              },
+              {
+                "title": "Interviewing",
+                "slugPath": "interviewing"
+              }
+            ]
+          },
+          {
+            "type": "file",
+            "name": "Capgemini.md",
+            "title": "Capgemini",
+            "slug": "capgemini",
+            "slugPath": "interviewing/capgemini",
+            "source": "Interviewing/Capgemini.md",
+            "html": "Interviewing/Capgemini.html",
+            "breadcrumbs": [
+              {
+                "title": "Notes",
+                "slugPath": ""
+              },
+              {
+                "title": "Interviewing",
+                "slugPath": "interviewing"
+              }
+            ]
+          },
+          {
+            "type": "file",
+            "name": "Locusview.md",
+            "title": "Locusview",
+            "slug": "locusview",
+            "slugPath": "interviewing/locusview",
+            "source": "Interviewing/Locusview.md",
+            "html": "Interviewing/Locusview.html",
+            "breadcrumbs": [
+              {
+                "title": "Notes",
+                "slugPath": ""
+              },
+              {
+                "title": "Interviewing",
+                "slugPath": "interviewing"
+              }
+            ]
+          },
+          {
+            "type": "file",
+            "name": "what i know.md",
+            "title": "What I Know",
+            "slug": "what-i-know",
+            "slugPath": "interviewing/what-i-know",
+            "source": "Interviewing/what i know.md",
+            "html": "Interviewing/what i know.html",
+            "breadcrumbs": [
+              {
+                "title": "Notes",
+                "slugPath": ""
+              },
+              {
+                "title": "Interviewing",
+                "slugPath": "interviewing"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "files": []
+  }
+}

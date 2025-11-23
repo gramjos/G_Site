@@ -1,0 +1,303 @@
+Grok:
+Key Points
+
+- It seems likely that performing OCR on scanned PDFs is necessary to extract text, given the non-selectable text.
+    
+- Research suggests fine-tuning transformer models like LayoutLM could be more accurate for complex documents, but traditional OCR with rule-based extraction might be quicker for limited data.
+    
+- The evidence leans toward using GUI tools like Label Studio for data annotation to minimize errors for junior engineers, while CLI tools like Tesseract and Camelot are effective for OCR and table extraction.
+    
+- Expect to extract fields like heat number, serial number, and manufacturer, structured into a spreadsheet.
+    
+
+---
+
+Data Preparation and Pre-processing
+
+OCR Necessity and Tools  
+Given the scanned PDFs with non-selectable text, OCR is essential to convert images to text. Use Tesseract OCR, supported by OCRmyPDF for batch processing, to handle this. For a GUI option, consider gImageReader, which simplifies the process for beginners.
+
+Data Labeling Requirements  
+You'll need to annotate the PDFs or extracted text with fields like heat number, serial number, etc. Label Studio offers a web-based GUI for this, making it easier to draw bounding boxes around text regions and label them, reducing errors for junior engineers.
+
+Model Options and Fine-tuning
+
+Fine-tuning vs. Traditional Methods  
+Fine-tuning a transformer model like LayoutLM from Hugging Face could offer higher accuracy for complex documents, especially with varying structures. However, it requires annotated data, which might be challenging with limited data. Alternatively, traditional OCR with rule-based extraction (e.g., regular expressions) can be quicker to set up and sufficient if documents have consistent layouts.
+
+Other Tools Besides PyTorch  
+Besides PyTorch, you can use TensorFlow with Hugging Face Transformers for fine-tuning. For a GUI approach, explore KNIME, though it may require Python integration for advanced models. These options are open-source and commercially free.
+
+Expected Output and Fields
+
+Final Format and Fields  
+The extracted information should be structured into a spreadsheet, with fields like heat number, serial number, manufacturer, name, asset, and type, based on your manufacturing test reports.
+
+---
+
+Survey Note: Detailed Strategy for Information Extraction from Manufacturing Test Reports
+
+This section provides a comprehensive guide for setting up a computer vision pipeline for information extraction from scanned PDF manufacturing test reports, focusing on minimizing errors for junior machine learning engineers. The documents vary, including text, tables, and graphics with text, and the goal is to extract specific fields into a spreadsheet format using open-source tools with commercially free licenses.
+
+Data Preparation and Pre-processing Phase
+
+OCR Necessity and Implementation  
+Given the non-selectable text in the scanned PDFs, Optical Character Recognition (OCR) is a critical first step to convert image-based PDFs into machine-readable text. The analysis of sample attachments, such as qualification reports and quality control test reports, confirms the need for OCR, as these documents contain structured text and tables that require extraction. Tesseract OCR, an open-source engine under the Apache License, is recommended, with OCRmyPDF providing a convenient wrapper for batch processing scanned PDFs. For instance, OCRmyPDF can add a searchable text layer, making subsequent extraction easier. For a GUI option, gImageReader, also open-source, offers a frontend for Tesseract, suitable for users preferring a visual interface.
+
+Data Labeling Requirements  
+Data labeling is essential, especially for fine-tuning models like LayoutLM, which requires annotated datasets. Given the limited data, annotating the PDFs or extracted text with fields like heat number, serial number, manufacturer, name, asset, and type is necessary. Label Studio, an open-source tool with a web-based GUI, is ideal for this task, supporting image annotation by drawing bounding boxes around text regions and labeling them. This approach minimizes errors for junior engineers by providing a user-friendly interface. The process involves converting PDFs to images if needed, then annotating each page, ensuring context is maintained for multi-page documents. Tutorials, such as [Label Studio Documentation — Label and annotate data](https://labelstud.io/guide/labeling), provide step-by-step guidance, including handling multi-page documents, which is relevant given the sample data's structure.
+
+Strategy to Minimize Errors
+
+To minimize errors, especially for a junior machine learning engineer, follow a structured workflow:
+
+1. Start with OCR: Ensure high-quality OCR output by preprocessing images (e.g., deskewing, enhancing contrast) to improve text recognition accuracy. Tutorials like [How to Perform Server-Side OCR on PDFs and Images](https://www.digitalocean.com/community/tutorials/how-to-perform-server-side-ocr-on-pdfs-and-images) offer best practices.
+    
+2. Annotate Carefully: Use Label Studio to annotate a small, representative subset of data, focusing on consistency in labeling to reduce variability. Validate annotations by reviewing a sample to catch errors early.
+    
+3. Choose the Right Model Approach: Given limited data, consider starting with rule-based extraction for quick results, then transition to fine-tuning if resources allow. This hybrid approach reduces initial errors and builds confidence.
+    
+4. Validate Extraction: After extraction, use pandas to structure data into a spreadsheet and validate against original documents to ensure accuracy, especially for critical fields like heat number and serial number.
+    
+5. Iterate and Refine: Use metrics like extraction accuracy and whitespace (from Camelot reports) to identify and refine problematic documents, minimizing errors over time.
+    
+
+This strategy leverages GUI tools for annotation and CLI tools for extraction, balancing ease of use with technical depth, suitable for a junior engineer's skill level.
+
+Model Options and Fine-tuning with Limited Data
+
+Fine-tuning Transformer Models  
+Fine-tuning a model like LayoutLM, available on Hugging Face under MIT license for commercial use, is a robust option for document understanding tasks. It integrates text, layout, and image information, making it suitable for manufacturing reports with varied structures. Tutorials, such as [Fine-tuning LayoutLM for document-understanding using Hugging Face Transformers](https://www.philschmid.de/fine-tuning-layoutlm), demonstrate the process using the FUNSD dataset, which can be adapted for your needs. However, with limited data, consider few-shot learning techniques or transfer learning from pre-trained models on similar domains (e.g., forms, receipts). Data augmentation, using libraries like Albumentations for image transformations, can help increase dataset size, though this may be advanced for beginners.
+
+Alternatives to PyTorch  
+Besides PyTorch, TensorFlow is supported by Hugging Face Transformers, offering another framework for fine-tuning. For a GUI approach, KNIME, an open-source data analytics platform, supports Python scripts and could integrate with Hugging Face, though its support for advanced models like LayoutLM may require additional setup. These options ensure commercial-free use, aligning with your requirements.
+
+Other Tools for GUI-based Fine-tuning  
+Finding a purely GUI-based tool for fine-tuning transformer models is challenging, but platforms like Google Colab provide a free environment to run Python code, including fine-tuning, without local setup. While not a GUI for the entire process, it simplifies execution for junior engineers. Ludwig, another open-source framework, allows declarative machine learning but may not fully support LayoutLM without coding.
+
+Traditional OCR + Rules vs. Fine-tuning Transformer Models
+
+Comparison and Recommendation  
+The choice between traditional OCR with rule-based extraction and fine-tuning transformer models depends on data availability and complexity. Rule-based extraction, using regular expressions or keyword search post-OCR, is quicker to implement and suitable for consistent document structures, as seen in the sample attachments with clear headers like "Heat Number:" and tables. Tools like Camelot for table extraction complement this approach, offering metrics to discard low-accuracy tables. However, for documents with varying layouts (e.g., graphics with text), fine-tuning LayoutLM may offer better accuracy by leveraging pre-trained knowledge. Given limited data, the evidence leans toward starting with OCR + rules for speed, then fine-tuning if annotation is feasible, balancing effort and accuracy.
+
+Unexpected Detail: Hybrid Approach  
+An unexpected detail is the potential for a hybrid approach, combining rule-based extraction for known fields and fine-tuning for ambiguous cases, optimizing both speed and accuracy. This is particularly relevant for manufacturing reports with mixed content, ensuring comprehensive coverage.
+
+Expected Output and Fields
+
+The final output should be a spreadsheet, with fields extracted including heat number, serial number, manufacturer, name, asset, and type, based on your specification. Structuring with pandas, as shown in tutorials like [pandas Documentation](https://pandas.pydata.org/docs/), involves creating DataFrames from extracted data and exporting to CSV or Excel, ensuring compatibility with standard tools.
+
+Preference for GUI-based Tools vs. CLI/Scripts
+
+For data annotation, GUI tools like Label Studio are recommended for their ease of use, especially for junior engineers, reducing errors through visual feedback. For OCR and extraction, CLI tools like Tesseract and Camelot are effective, with GUI options like gImageReader available for OCR. The best choice depends on comfort level: GUI for annotation and validation, CLI for batch processing and automation, ensuring a balanced workflow.
+
+Tutorials and Resources
+
+Below is a table summarizing recommended tutorials and tools, ensuring a comprehensive learning path:
+
+|Step|Tool|Tutorial/Link|
+|---|---|---|
+|OCR|Tesseract, OCRmyPDF|[Using Tesseract - OCR and Searchable PDFs](https://guides.library.illinois.edu/c.php?g=347520&p=4121426)<br><br>,<br><br>[OCRmyPDF Documentation](https://ocrmypdf.readthedocs.io/en/latest/)|
+|Data Annotation|Label Studio|[Label Studio — Label and annotate data](https://labelstud.io/guide/labeling)<br><br>,<br><br>[Multi-page Document Annotation](https://labelstud.io/templates/multi-page-document-annotation)|
+|Fine-tuning Model|LayoutLM, Hugging Face|[Fine-tuning LayoutLM with Hugging Face](https://www.philschmid.de/fine-tuning-layoutlm)<br><br>,<br><br>[Transformers-Tutorials GitHub](https://github.com/NielsRogge/Transformers-Tutorials)|
+|Table Extraction|Camelot|[Camelot Documentation](https://camelot-py.readthedocs.io/en/master/)<br><br>,<br><br>[Extract Tables from PDF in Python](https://thepythoncode.com/article/extract-pdf-tables-in-python-camelot)|
+|Data Structuring|pandas|[pandas Documentation](https://pandas.pydata.org/docs/)|
+
+This table ensures all steps are covered, with links to authoritative resources for implementation.
+
+Conclusion
+
+By following this detailed strategy, leveraging GUI tools for annotation and CLI tools for extraction, you can effectively extract information from your manufacturing test reports, minimizing errors and maximizing efficiency. The hybrid approach of starting with rule-based methods and potentially fine-tuning offers flexibility, especially with limited data, ensuring a practical path for a junior ML engineer.
+
+---
+
+Key Citations
+
+- [Using Tesseract - Introduction to OCR and Searchable PDFs](https://guides.library.illinois.edu/c.php?g=347520&p=4121426)
+    
+- [OCRmyPDF Documentation detailed guide for adding OCR text layer](https://ocrmypdf.readthedocs.io/en/latest/)
+    
+- [Label Studio Documentation — Label and annotate data comprehensive guide](https://labelstud.io/guide/labeling)
+    
+- [Fine-tuning LayoutLM for document-understanding using Hugging Face Transformers tutorial](https://www.philschmid.de/fine-tuning-layoutlm)
+    
+- [Camelot: PDF Table Extraction for Humans official documentation](https://camelot-py.readthedocs.io/en/master/)
+    
+- [pandas Documentation for data manipulation and analysis](https://pandas.pydata.org/docs/)
+    
+- [Label Studio — Multi-page Document Annotation template for large documents](https://labelstud.io/templates/multi-page-document-annotation)
+    
+- [How to Perform Server-Side OCR on PDFs and Images step-by-step guide](https://www.digitalocean.com/community/tutorials/how-to-perform-server-side-ocr-on-pdfs-and-images)
+
+---
+OpenAI:
+
+Great, I’ll pull together real-world tutorials and tools that demonstrate a full AI workflow for extracting structured data from scanned manufacturing test reports, targeting spreadsheet output. I’ll focus on open-source tools that are free for commercial use, and highlight both code-first and GUI-based options—including fine-tuning approaches that work well with limited data.
+
+I’ll also lay out a solid strategy for minimizing common errors for junior ML engineers, with a focus on preprocessing (like OCR), labeling, and alternatives to full PyTorch pipelines. I’ll get back to you shortly with everything packaged up cleanly.
+
+# End-to-End Pipeline for Extracting Structured Data from Scanned Test Reports
+
+**Problem:** We have scanned manufacturing test reports (Mill Test Reports, etc.) in PDF form. They vary in layout: some are text-heavy, others have tables, graphics, etc. We need to extract key fields (e.g. **Heat Number**, **Serial Number**, **Manufacturer**, **Name**, **Asset**, **Type**) from these PDFs into a structured format (like rows in a spreadsheet). Below is a step-by-step AI pipeline using open-source, commercially permissive tools to achieve this.
+
+## Step 1: Preprocessing Scanned PDFs and OCR
+
+**Pre-process the scans for OCR.** Scanned images often have noise, skew, or low contrast which can hurt OCR accuracy. Ensure the scanned PDFs are converted to images (e.g. one image per page) at a high resolution (around 300 DPI or higher) ([Improving the quality of the output | tessdoc](https://tesseract-ocr.github.io/tessdoc/ImproveQuality.html#:~:text=Rescaling)). Then apply image processing techniques to clean the image:
+
+- **Denoising & Binarization:** Convert to grayscale and apply thresholding to produce clear black text on white background. This improves text segmentation ([Improving the quality of the output | tessdoc](https://tesseract-ocr.github.io/tessdoc/ImproveQuality.html#:~:text=Image%3A%20binarisation)).
+    
+- **Deskewing:** Detect and correct any rotation so text lines are horizontal ([Improving the quality of the output | tessdoc](https://tesseract-ocr.github.io/tessdoc/ImproveQuality.html#:~:text=,Page%20segmentation%20method)).
+    
+- **Noise Removal & Morphology:** Remove speckles or scan artifacts and use morphological operations (dilation/erosion) to solidify characters ([Improving OCR Results with Basic Image Processing - PyImageSearch](https://pyimagesearch.com/2021/11/22/improving-ocr-results-with-basic-image-processing/#:~:text=1,applying%20our%20image%20processing%20routine)).
+    
+- **Contrast Enhancement:** Increase contrast if text is faint.
+    
+
+These steps (which can be done with Python OpenCV, PIL, or scikit-image) dramatically improve Tesseract OCR accuracy by ensuring clean separation of text from background ([Improving OCR Results with Basic Image Processing - PyImageSearch](https://pyimagesearch.com/2021/11/22/improving-ocr-results-with-basic-image-processing/#:~:text=1,applying%20our%20image%20processing%20routine)). (For example, Adrian Rosebrock demonstrates how thresholding and morphology boosted Tesseract's results on challenging images ([Improving OCR Results with Basic Image Processing - PyImageSearch](https://pyimagesearch.com/2021/11/22/improving-ocr-results-with-basic-image-processing/#:~:text=1,applying%20our%20image%20processing%20routine)).) If documents contain graphical plots or logos, you may consider isolating or removing those regions before OCR so they don’t confuse the text extractor.
+
+**Apply an OCR engine to the preprocessed images.** Use an open-source OCR like **Tesseract** (Apache 2.0 licensed) via Python’s `pytesseract`. Tesseract is free for commercial use and widely supported. Make sure to choose an appropriate page segmentation mode (`--psm` option) for your layout (e.g. mode 6 or 4 for block of text, mode 1 for automatic layout) to help Tesseract understand multi-column or form layouts ([Improving OCR Results with Basic Image Processing - PyImageSearch](https://pyimagesearch.com/2021/11/22/improving-ocr-results-with-basic-image-processing/#:~:text=In%20our%20previous%20tutorial%2C%20you,in%20which%20it%20was%20captured)). With proper preprocessing, Tesseract can extract text from most scans; however, be aware of its limitations on very noisy scans or complex layouts ([How to extract data using Tesseract OCR?](https://www.docsumo.com/blog/tesseract-ocr#:~:text=1,column%20text%2C%20and%20unconventional%20arrangements)). In particular, Tesseract might mix up reading order in multi-column or irregular layouts ([How to extract data using Tesseract OCR?](https://www.docsumo.com/blog/tesseract-ocr#:~:text=2,less%20common%20languages%20and%20fonts)). To mitigate this, you can post-process the OCR results using coordinate positions or employ layout-aware models (next steps).
+
+_Alternatives:_ If Tesseract’s accuracy is insufficient on your data (e.g. very low-quality scans or non-English text), consider other open-source OCR engines. For example, **EasyOCR** and **PaddleOCR** provide pretrained deep learning OCR detectors/recognizers ([blog/document-ai.md at main · huggingface/blog · GitHub](https://github.com/huggingface/blog/blob/main/document-ai.md#:~:text=OCR%20is%20a%20backbone%20of,level%20precision%2C%20recall)). PaddleOCR in particular includes a high-accuracy OCR pipeline and can handle rotated text and multilingual content. It also offers an **`OCRLayout`** module to detect text vs. non-text regions. These can outperform Tesseract on challenging images but are heavier to run. For our purposes, starting with Tesseract (possibly with its LSTM models and language-specific training data if needed) is usually sufficient and easy to integrate.
+
+## Step 2: Analyzing Document Layout and Selecting an Extraction Approach
+
+Once you have OCR text (and possibly the bounding box coordinates of each word from OCR), the next challenge is to **identify the key fields** (Heat No, Serial No, etc.) in the document’s content. Because the documents have varied structure, it’s best to use a **layout-aware information extraction** approach rather than simple regex. Here are two major strategies:
+
+1. **Layout-aware Neural Models (Structured prediction):** Leverage Document AI models that understand text in context of the page layout. A prime example is Microsoft’s **LayoutLM** family ([[Tutorial] How to Train LayoutLM on a Custom Dataset with Hugging Face | by Matt Noe | Medium](https://medium.com/@matt.noe/tutorial-how-to-train-layoutlm-on-a-custom-dataset-with-hugging-face-cda58c96571c#:~:text=LayoutLMv3%20is%20a%20pre,various%20document%20AI%20tasks%2C%20including)). LayoutLM is a transformer that takes both text and the 2D position of text on the page as input. It was designed for forms and documents – tasks like form understanding, invoice field extraction, ID parsing, etc. ([[Tutorial] How to Train LayoutLM on a Custom Dataset with Hugging Face | by Matt Noe | Medium](https://medium.com/@matt.noe/tutorial-how-to-train-layoutlm-on-a-custom-dataset-with-hugging-face-cda58c96571c#:~:text=2,Question%20Answering)). By incorporating layout, it can distinguish a “Serial Number” in a header vs. elsewhere, based on spatial cues. You can fine-tune a LayoutLM model for **token classification**, essentially teaching it to tag each word (or token) as “part of a HeatNumber”, “part of a SerialNumber”, etc. The model then learns to find those fields on new documents even if the format varies. One important note is licensing: _LayoutLM v1_ is MIT-licensed (allowed for commercial use), whereas v2 and v3, while more accurate, had more restrictive licenses ([Fine-tuning LayoutLM for document-understanding using Keras & Hugging Face Transformers](https://www.philschmid.de/fine-tuning-layoutlm-keras#:~:text=LayoutLM%20is%20a%20document%20image,purposes%20compared%20to%20other%20LayoutLMv2%2FLayoutLMv3) ). To stay completely free for commercial use, you can use LayoutLM v1 or other open models. Facebook’s **Detectron2** based models like **DiT (Document Image Transformer)** and newer layout models on Hugging Face are also available (check licenses). LayoutLMv3 and similar multimodal models have achieved state-of-the-art results on document tasks by combining text+image features ([blog/document-ai.md at main · huggingface/blog · GitHub](https://github.com/huggingface/blog/blob/main/document-ai.md#:~:text=That%27s%20where%20models%20like%20LayoutLM,models%20are%20changing%20how%20practitioners)), but if their license is a concern, stick to v1 or alternatives like the next option.
+    
+2. **End-to-End Document Transformers (OCR-free):** Another approach is to use a model that directly parses the document image and generates the output fields, without a separate OCR step. **Donut (Document Understanding Transformer)** is one such model by NAVER Clova AI, and it’s notably **MIT-licensed** ([Document AI: Fine-tuning Donut for document-parsing using Hugging Face Transformers](https://www.philschmid.de/fine-tuning-donut#:~:text=In%20this%20blog%2C%20you%20will,model%20versioning%20and%20experiment%20tracking)). Donut uses a vision transformer encoder and a text decoder to read the image and output text (or JSON) containing the desired information ([Document AI: Fine-tuning Donut for document-parsing using Hugging Face Transformers](https://www.philschmid.de/fine-tuning-donut#:~:text=Document%20Understanding%20Transformer%20,generates%20a%20sequence%20of%20tokens)). It can be fine-tuned on your specific document type to, for example, output a structured JSON with keys “heat_number”, “serial_number”, etc. Because Donut is trained to handle documents (it achieved state-of-the-art results on receipt and form benchmarks), it can learn to extract fields without explicit OCR token alignment. The advantage is simpler pipeline (no separate OCR module needed at inference). The downside is that fine-tuning Donut usually requires more training data and compute than fine-tuning LayoutLM, since Donut learns to generate text from images. If your training data is very limited, LayoutLM (which relies on OCR) might be easier to fine-tune because it benefits from the OCR text being available. If you have a moderate dataset and a GPU, Donut is a powerful option that is fully open source ([Document AI: Fine-tuning Donut for document-parsing using Hugging Face Transformers](https://www.philschmid.de/fine-tuning-donut#:~:text=In%20this%20blog%2C%20you%20will,model%20versioning%20and%20experiment%20tracking)).
+    
+3. **Rule-based or Keyword Matching (fallback):** In cases with extremely limited training data, you might incorporate some heuristic extraction for certain fields. For instance, if the text “Heat Number” is always followed by the value, a regex or text search for “Heat Number” and grabbing the following number could work. However, this breaks easily if formats change (e.g. “Heat No.” vs “Heat #”). A happy medium is to combine this with AI: use the OCR text to locate known keywords and use a small ML model to validate or refine the selection. Overall, purely rule-based extraction is brittle for varied layouts, so we recommend using it only as a supplement (or for quick initial prototyping).
+    
+
+**Handling tables and graphics:** If some fields are embedded in tables or alongside plots, a layout analysis can help. One approach is to use a tool like **LayoutParser** or PaddleOCR’s **Layout Analysis** to segment the page into regions (text, table, figure, etc.) ([Overview - PaddleOCR Documentation](https://paddlepaddle.github.io/PaddleOCR/main/en/ppstructure/overview.html#:~:text=,semantic%20entity%20recognition%29%20module)). For example, PaddleOCR’s **PP-Structure** pipeline first classifies regions of a page: it might detect a large chemical composition table separately from paragraphs of text ([Overview - PaddleOCR Documentation](https://paddlepaddle.github.io/PaddleOCR/main/en/ppstructure/overview.html#:~:text=,engine%20is%20first%20used%20to)). You could then run table-specific extraction (like sending that region to a table OCR or to a model fine-tuned for table cells) while handling text regions with a form field model. In many cases, though, the fields like “Manufacturer” or “Heat No” might be in a text section (e.g., a header or footer of the report). Your model (LayoutLM or Donut) should be able to pick them out as long as they were labeled in training data, regardless of surrounding tables or images – the model will learn the layout pattern of where those fields typically appear. If needed, you can instruct the OCR or model to ignore non-text graphics by masking those areas (for instance, by detecting figures by color or by using an object detection model to find and block them out).
+
+**Summary of this step:** Decide on the extraction method. If opting for a machine learning approach (which is recommended for robustness), prepare to fine-tune a document AI model (like LayoutLM or Donut) on your reports. If you want a quicker solution without training, you can try a question-answering approach (discussed later in Step 4) where a pretrained model is asked “What is the Heat Number?” on each document – but the accuracy might be lower if the model isn’t adapted to your specific documents. In the next steps, we focus on the ML approach with fine-tuning, since you mentioned having limited training data (implying some data exists to train a custom model).
+
+## Step 3: Labeling Data for Structured Field Extraction
+
+To train or fine-tune a model to extract these fields, you’ll need **labeled examples** of your documents. This means for a set of report pages, you need to annotate the locations or text of the target fields. Given our use-case (extract specific text fields), the appropriate labeling approach is to treat it like **Named Entity Recognition (NER)** or key-value pairing on documents. Each occurrence of “Heat Number: X” would be labeled such that “X” (and possibly the words “Heat Number”) are tagged as that entity.
+
+**Use a GUI annotation tool** to make this easier:
+
+- **Label Studio** (open source, Apache 2.0) is a great choice for document labeling. It allows you to upload document images/PDFs and annotate regions or text spans. For our task, you can configure Label Studio to do OCR-assisted labeling: upload the page images and use the “OCR” template interface, which can auto-detect text and let you label words by selecting them. In practice, a simple way is to draw a bounding box around the text of each field and assign it a label (e.g. draw a box around the heat number value and tag it as “HeatNumber”). Label Studio even has a “OCR Labeling” template that integrates Tesseract to pre-detect words ([Bounding Box OCR - Label Studio](https://labelstud.io/integrations/machine-learning/tesseract/#:~:text=Bounding%20Box%20OCR%20,through%20its%20machine%20learning%20interface)) ([Bounding Box OCR - Label Studio](https://labelstud.io/integrations/machine-learning/tesseract/#:~:text=Label%20Studio%20can%20use%20Tesseract,through%20its%20machine%20learning%20interface)). Alternatively, you can just draw freeform boxes and label them. You should also label the field names if needed or any context that helps (some tasks label the entire “Heat Number: 802Z37570” as one entity, others label just the value – decide what you need as output).
+    
+- **Doccano** (open source) is another tool, but it is text-based (for labeling sequences of text). If you already have OCR output for each document as text, you could load that into Doccano and highlight the field values in the text. This would treat it like a classic NER task (sequence labeling on plain text). However, you may lose layout information unless you encode position as tokens. Given that layout is important and you have non-standard documents, labeling directly on the document image (with a tool like Label Studio) is recommended.
+    
+
+**Label efficiently:** If your training data is small, you likely have on the order of tens of documents to label. Focus on quality over quantity: label each occurrence of the key fields accurately. It’s helpful to define the exact tag set in advance (heat number, serial, etc.) and be consistent. Label Studio will let you export the annotations in JSON format. For example, you might end up with a JSON file where each labeled bounding box has coordinates on the page and a label like “HeatNumber”.
+
+([LayoutLMv3: from zero to hero — Part 2 | by Shiva Rama | Medium](https://medium.com/@shivarama/layoutlmv3-from-zero-to-hero-part-2-d2659eaa7dee#:~:text=,images)) ([LayoutLMv3: from zero to hero — Part 2 | by Shiva Rama | Medium](https://medium.com/@shivarama/layoutlmv3-from-zero-to-hero-part-2-d2659eaa7dee#:~:text=Before%20we%20start%20labelling%2C%20we,CDIP%20dataset%20for%20this%20tutorial))_As a real-world example, Shiva Rama’s tutorial on fine-tuning LayoutLMv3 shows how to convert PDFs to images and use Label Studio to tag fields (like invoice number, date, amount in invoices) with custom labels, then export to JSON for model training._ The process for our case is analogous: convert each PDF page to an image, annotate the target fields on each image, and export the annotations.
+
+Next, you will need to convert these annotations into the training format for your model. Typically, for LayoutLM or similar, this means generating for each document a list of tokens (words) with their bounding box coordinates and label. You can automate this:
+
+1. Run Tesseract (or your chosen OCR) on each labeled page to get all text tokens with their bounding boxes (Tesseract’s HOCR output or `pytesseract.image_to_data` can give bounding box coordinates for each word).
+    
+2. Match the OCR tokens to your labeled regions from Label Studio. Essentially, if an OCR token’s coordinates fall inside a labeled box for “HeatNumber”, assign that token the label “HeatNumber”. All other tokens get a “O” (no entity) label.
+    
+3. Save the token-wise labels in a JSON or TSV format as required by the model. For instance, Hugging Face Transformers models often expect a list of words, their bounding boxes, and labels for each document.
+    
+
+Shiva Rama’s Medium article demonstrates parsing the Label Studio JSON and Tesseract HOCR to create the training data for LayoutLM ([LayoutLMv3: from zero to hero — Part 2 | by Shiva Rama | Medium](https://medium.com/@shivarama/layoutlmv3-from-zero-to-hero-part-2-d2659eaa7dee#:~:text=%2A%20Create%20text%2Bbounding)). After this, you will have a dataset of (image, tokens, token_boxes, labels). If using Donut, the labeling would be slightly different: you might create a target string for each document like `{"heat_number": "802Z37570", "serial_number": "XYZ123", ...}` and train the model to generate that text from the image. This also requires examples, but you’d prepare them as image-JSON pairs. In either approach, a GUI tool greatly speeds up annotation.
+
+_Tip:_ If you have so little data that training is a concern, you could label everything you have and use those for fine-tuning with cross-validation (since a train/test split might be small). Pretrained models can often generalize from a surprisingly small number of examples if the task is straightforward – e.g., LayoutLM on FUNSD (which had ~199 samples) achieved good form understanding ([Fine-tuning LayoutLM for document-understanding using Keras & Hugging Face Transformers](https://www.philschmid.de/fine-tuning-layoutlm-keras#:~:text=it%20to%20be%20used%20for,purposes%20compared%20to%20other%20LayoutLMv2%2FLayoutLMv3) ). Also, consider using **data augmentation**: you can synthetically alter some training images (slight rotations, adding noise) or even generate fake documents with the fields in different positions, to give the model more to learn from.
+
+## Step 4: Fine-Tuning Models with Minimal Coding (Leveraging AutoML and Pipelines)
+
+With labeled data in hand, the next step is to fine-tune a model to recognize the fields. If you’re a junior ML engineer or want to minimize writing custom PyTorch code, there are several high-level options:
+
+- **Hugging Face Transformers & Trainer:** Hugging Face provides high-level Trainer APIs and even some example notebooks for document AI. Niels Rogge (from Hugging Face) has shared notebooks fine-tuning LayoutLM on FUNSD and other datasets ([[Tutorial] How to Train LayoutLM on a Custom Dataset with Hugging Face | by Matt Noe | Medium](https://medium.com/@matt.noe/tutorial-how-to-train-layoutlm-on-a-custom-dataset-with-hugging-face-cda58c96571c#:~:text=Many%20great%20guides%20exist%20on,Face%20team%20has%20put%20out)) – you can adapt those. Essentially, you feed the model your tokenized documents (with positions and images if using LayoutLMv2/v3) and the labels, and run training for a few epochs. This requires writing some Python, but mostly leveraging existing libraries. If you prefer a no-code approach, consider…
+    
+- **Hugging Face AutoTrain:** AutoTrain is a platform where you can upload your dataset and it will train a model for you automatically ([Resources For Fine-Tuning Ai Vision Models | Restackio](https://www.restack.io/p/vision-fine-tuning-answer-reddit-resources-cat-ai#:~:text=AutoTrain)). It supports tasks like token classification and question answering. You would need to prepare the dataset in a format it expects (possibly CSV or JSON with tokens and labels). AutoTrain will handle the training on Hugging Face’s servers – you just choose the model (e.g., LayoutLM base) and some settings. This is a convenient option if supported, as it avoids dealing with the training loop code and infrastructure. AutoTrain emphasizes minimal coding and even allows some hyperparameter tuning via the UI ([Resources For Fine-Tuning Ai Vision Models | Restackio](https://www.restack.io/p/vision-fine-tuning-answer-reddit-resources-cat-ai#:~:text=Hugging%20Face%27s%20AutoTrain%20feature%20allows,Key%20features%20include)). Do verify that the specific task (multimodal token classification) is supported – if not, the Trainer route might be necessary.
+    
+- **Haystack Pipeline (for QA approach):** Another approach if you want to avoid model training altogether is to use a **question-answering pipeline** to extract fields. Tools like **Haystack** (by Deepset) let you build a pipeline that can take documents and answer specific queries. For example, you can configure Haystack to ask: “What is the Heat Number?” and “What is the Serial Number?” for each document. Under the hood, you’d use a pretrained **Document QA model** (like a RoBERTa fine-tuned on SQuAD or a LayoutLM fine-tuned on document QA). Haystack’s `ExtractiveQAPipeline` will retrieve the text and find the answer spans, returning them in a structured JSON format ([How do I use Haystack to extract structured data from documents?](https://milvus.io/ai-quick-reference/how-do-i-use-haystack-to-extract-structured-data-from-documents#:~:text=For%20example%2C%20if%20you%E2%80%99re%20extracting,like%20switching)). This essentially treats field extraction as a Q&A task. If you have some labeled data, you could even fine-tune a QA model on it (by writing synthetic questions like “What is the heat number?” with the answer in the text). Haystack also offers an `EntityExtractor` node which can use a spaCy NER model or a custom NER to pull out entities like dates, names, etc., without explicit questions ([How do I use Haystack to extract structured data from documents?](https://milvus.io/ai-quick-reference/how-do-i-use-haystack-to-extract-structured-data-from-documents#:~:text=,to)). For a quick solution, you might try Haystack with a pretrained model and see if asking questions gets the right answers. This can work surprisingly well for things like dates or IDs if the question is specific ([How do I use Haystack to extract structured data from documents?](https://milvus.io/ai-quick-reference/how-do-i-use-haystack-to-extract-structured-data-from-documents#:~:text=For%20example%2C%20if%20you%E2%80%99re%20extracting,like%20switching)). The advantage is you can iterate quickly and even incorporate rules (Haystack allows adding a post-processing step to validate answers, e.g. match a regex for serial number format) ([How do I use Haystack to extract structured data from documents?](https://milvus.io/ai-quick-reference/how-do-i-use-haystack-to-extract-structured-data-from-documents#:~:text=Customization%20is%20key%20for%20accurate,datasets%20for%20analysis%2C%20reporting%2C%20or)). The disadvantage is that it might miss fields if the wording is different or if the model isn’t accustomed to your domain (since it wasn’t explicitly trained on your docs).
+    
+- **DocQuery (Impira’s tool):** DocQuery is an open-source CLI and library that simplifies the above QA approach ([GitHub - impira/docquery: An easy way to extract information from documents](https://github.com/impira/docquery#:~:text=DocQuery%20is%20a%20library%20and,by%20the%20team%20at%20Impira)). It uses Hugging Face Document QA models under the hood. For instance, with one command you can ask “What is the heat number?” on a folder of PDFs ([GitHub - impira/docquery: An easy way to extract information from documents](https://github.com/impira/docquery#:~:text=,750px.png%20with)). DocQuery will handle running an OCR (Tesseract) if needed and use a model (like LayoutLM or Donut fine-tuned for DocVQA) to find the answer in each document, outputting the results. This is a no-code solution to try out quickly. It’s also MIT licensed. Users have used it for invoices and purchase orders (questions like “What is the invoice total?”) ([GitHub - impira/docquery: An easy way to extract information from documents](https://github.com/impira/docquery#:~:text=,750px.png%20with)). For our fields, you’d just adjust the questions. Keep in mind, if the model fails to find an answer, you might need to fine-tune it or fallback on another method. But DocQuery can be a fast baseline to see what an off-the-shelf model achieves on your reports.
+    
+- **PaddleOCR PP-Structure (Integrated Pipeline):** If you want a more integrated solution, PaddleOCR’s **PP-Structure** (as mentioned before) can do OCR, layout analysis, and key information extraction in one toolkit ([Overview - PaddleOCR Documentation](https://paddlepaddle.github.io/PaddleOCR/main/en/ppstructure/overview.html#:~:text=,engine%20is%20first%20used%20to)) ([Overview - PaddleOCR Documentation](https://paddlepaddle.github.io/PaddleOCR/main/en/ppstructure/overview.html#:~:text=,extracting%20the%20required%20key%20information)). It includes a pretrained **Semantic Entity Recognition (SER)** model for documents, which can be fine-tuned for your specific fields. PaddleOCR even has a labeling tool called **PPOCRLabel** that supports annotating images for SER tasks ([Overview - PaddleOCR Documentation](https://paddlepaddle.github.io/PaddleOCR/main/en/ppstructure/overview.html#:~:text=,analysis%2C%20table%20recognition%2C%20and%20SER)). This might be overkill or require learning a new framework, but it’s worth mentioning as a comprehensive open-source pipeline. You can mix-and-match modules; for instance, use Paddle’s OCR and table recognition, but use your own model for field extraction. The library is in Python and has good documentation. The key benefit: it can output recognized tables directly to Excel and output identified key fields as JSON, which covers our end goal nicely ([Overview - PaddleOCR Documentation](https://paddlepaddle.github.io/PaddleOCR/main/en/ppstructure/overview.html#:~:text=,layout%20as%20the%20original%20image)). PaddleOCR is also permissively licensed (Apache 2.0).
+    
+
+**Which models to fine-tune?** For a junior engineer, the safest path is:
+
+- If using LayoutLM: Fine-tune **LayoutLMv1** (since it’s commercially usable) for token classification. There are pretrained weights on Hugging Face (e.g. `microsoft/layoutlm-base-uncased` and even ones already fine-tuned on forms like FUNSD you can start from). You will need the HuggingFace Transformers library. The tutorial by philschmid ([Fine-tuning LayoutLM for document-understanding using Keras & Hugging Face Transformers](https://www.philschmid.de/fine-tuning-layoutlm-keras#:~:text=In%20this%20blog%2C%20you%20will,purposes%20compared%20to%20other%20LayoutLMv2%2FLayoutLMv3) ) shows doing this in TensorFlow/Keras, but you can use PyTorch as well. Given limited data, consider using the _pretrained LayoutLM weights_ and just train for a few epochs on your labeled data. That should be enough to learn to detect your fields.
+    
+- If using Donut: Use a pretrained **Donut base** model (there is one trained on general documents and one fine-tuned on certain tasks like receipts). Fine-tuning Donut will involve providing the expected output format. For instance, define a simple template like `{heat_no: <HEAT_NO>, serial_no: <SERIAL_NO>, ...}` in text and train the model to generate that. The Hugging Face blog by philschmid ([Document AI: Fine-tuning Donut for document-parsing using Hugging Face Transformers](https://www.philschmid.de/fine-tuning-donut#:~:text=In%20this%20blog%2C%20you%20will,model%20versioning%20and%20experiment%20tracking)) walks through fine-tuning Donut on a receipts dataset (SROIE) – you can follow a similar approach. Donut is quite advanced; ensure you have a GPU for training.
+    
+- Other models: There are other layout-aware models on HuggingFace Hub, such as **LayoutXLM** (multilingual LayoutLM), **Structurally Supervised Transformers** by IBM, etc. However, many of these are research models. To keep things practical, LayoutLM or Donut are the go-to choices for form-like extraction. Another model is **TrOCR** combined with a language model, but that’s more for pure OCR transcription. Since we need structured fields, we benefit from a model that was designed for key information extraction.
+    
+
+Finally, after fine-tuning, **evaluate the model on a few test documents**. Manually check if it’s correctly extracting the fields. You can use simple scripts to run the model on new PDFs: first do OCR (if using LayoutLM) then feed into model to get labels or answers. With Donut, just input the image to the model and parse its text output.
+
+## Step 5: Building the Inference Pipeline and Exporting to Spreadsheet
+
+Now, put it all together: the **inference pipeline** would take a new scanned report, apply OCR (if needed), run the extraction model, and output the structured data. A stepwise pipeline for a new PDF could be:
+
+1. Convert PDF to image(s) (if multi-page, handle each page or assume relevant info is on a specific page).
+    
+2. Apply the same pre-processing as training (resize, binarize, etc.).
+    
+3. If using LayoutLM-based model: run OCR to get tokens + bounding boxes. Then feed those to your fine-tuned model to get entity labels per token. Aggregate tokens by label to reconstruct the full field values. For example, all tokens labeled “HeatNumber” (B- and I- tags) in reading order form the Heat Number value. If using a QA approach: feed the text to the QA model with the question, get answer.
+    
+4. If using Donut: feed the image to the model, get the text output (which might be a JSON or a sequence containing the fields).
+    
+5. Post-process the outputs as needed. E.g., remove any extra punctuation, validate that a serial number matches expected pattern, etc. (It’s good to add simple rules to catch obvious errors – e.g., if “Heat Number” is supposed to be alphanumeric and the model output a date by mistake, you can flag or fix that).
+    
+6. **Export to spreadsheet:** This part is straightforward. You can create a CSV or Excel file where each extracted field is a column. If each PDF is one row, fill the row with the values the model found. All the tools we discussed output data in an easily scriptable format (text or JSON). For example, if you have the results in JSON, you can use Python’s pandas to normalize JSON to rows and save to CSV. If you prefer Excel, you can use `openpyxl` or pandas to write to `.xlsx`.
+    
+
+Some tools have this built-in: PaddleOCR’s table recognizer, for instance, will directly generate an Excel file for extracted tables ([Overview - PaddleOCR Documentation](https://paddlepaddle.github.io/PaddleOCR/main/en/ppstructure/overview.html#:~:text=be%20divided%20into%20areas%20such,layout%20as%20the%20original%20image)). Even if your pipeline doesn’t directly output Excel, converting the final results to a spreadsheet format is a minor step. The key was getting accurate data out, which the previous steps handle.
+
+([Overview - PaddleOCR Documentation](https://paddlepaddle.github.io/PaddleOCR/main/en/ppstructure/overview.html)) _Example of a document processing pipeline for layout analysis and key information extraction (from PaddleOCR’s PP-Structure). The image shows an input document undergoing image orientation correction, then either the **Layout Analysis** branch (to identify regions like text, table, figure and reconstruct layout) or the **Key Information Extraction** branch (OCR followed by Semantic Entity Recognition and Relation Extraction to output structured info) ([Overview - PaddleOCR Documentation](https://paddlepaddle.github.io/PaddleOCR/main/en/ppstructure/overview.html#:~:text=,engine%20is%20first%20used%20to)) ([Overview - PaddleOCR Documentation](https://paddlepaddle.github.io/PaddleOCR/main/en/ppstructure/overview.html#:~:text=,extracting%20the%20required%20key%20information))._
+
+## Additional Best Practices and Resources
+
+- **Model Selection with Limited Data:** When data is limited, using a strongly pre-trained model is crucial. LayoutLM was pre-trained on huge amounts of documents, so it has learned to recognize common layout patterns (headers, tables, etc.), which helps it generalize from few examples ([blog/document-ai.md at main · huggingface/blog · GitHub](https://github.com/huggingface/blog/blob/main/document-ai.md#:~:text=That%27s%20where%20models%20like%20LayoutLM,models%20are%20changing%20how%20practitioners)). Fine-tuning will adjust it to your specific field names. If “Manufacturer” or “Heat No” are uncommon terms, you might augment your data by adding a few synthetic examples or synonyms during training so the model sees variations.
+    
+- **Iteration:** Expect to iterate on the OCR and model. If you notice the OCR is messing up certain fields (e.g., “B” looking like “8” in serial numbers), you might improve the image preprocessing or try a different OCR engine for those cases. Similarly, if the model confuses two fields, you may need to provide more training examples or add constraints (for example, if “Type” is always one of a fixed set of values, you can post-process the model output to the nearest valid value).
+    
+- **Labeling Tools:** Label Studio and others allow you to export in formats ready for Hugging Face (`datasets` library). You can also use Label Studio’s converter scripts. Remember to **preserve the train/test split** if you have enough data, so you can measure performance on unseen docs. With very limited data, you might do a cross-validation or leave-one-out testing.
+    
+- **GUI / Low-Code Solutions:** If coding a pipeline in Python is challenging, you can consider UI-based platforms. For instance, **Hugging Face Inference Endpoints** or **Spaces** could host your model and provide a simple UI to upload PDFs and get results (though setting that up requires some work). There are also enterprise tools (like Google Document AI, Amazon Textract, Azure Form Recognizer) that have GUIs and automations for exactly this kind of field extraction – however, those are paid services, not open source. Our focus remains on open solutions: the good news is all the pieces (OCR, models, etc.) are available to you for free.
+    
+- **Tutorials and References:** Here are some resources that demonstrate parts of this pipeline in practice:
+    
+    - Matt Noe’s “[How to Train LayoutLM on a Custom Dataset](https://medium.com/@matt.noe/tutorial-how-to-train-layoutlm-on-a-custom-dataset-with-hugging-face-cda58c96571c)” – a Medium article explaining fine-tuning LayoutLMv3 on a custom set of documents (they used ID cards as an example, with a tool called Butler for labeling) ([[Tutorial] How to Train LayoutLM on a Custom Dataset with Hugging Face | by Matt Noe | Medium](https://medium.com/@matt.noe/tutorial-how-to-train-layoutlm-on-a-custom-dataset-with-hugging-face-cda58c96571c#:~:text=This%20guide%20is%20intended%20to,on%20your%20own%20custom%20documents)) ([[Tutorial] How to Train LayoutLM on a Custom Dataset with Hugging Face | by Matt Noe | Medium](https://medium.com/@matt.noe/tutorial-how-to-train-layoutlm-on-a-custom-dataset-with-hugging-face-cda58c96571c#:~:text=1,inference%20on%20your%20trained%20model)).
+        
+    - HuggingFace’s **Transformers notebooks**: Niels Rogge’s GitHub has a collection of tutorials, including one for LayoutLMv2 on FUNSD and one for LayoutLMv3 on CORD receipts ([Fine-tuning LayoutLMv2ForTokenClassification on FUNSD ... - Colab](https://colab.research.google.com/github/NielsRogge/Transformers-Tutorials/blob/master/LayoutLMv2/FUNSD/Fine_tuning_LayoutLMv2ForTokenClassification_on_FUNSD_using_HuggingFace_Trainer.ipynb#:~:text=Fine,label%20words%20appearing%20in)). These are excellent for seeing the code needed.
+        
+    - **Ubiai** and **Label Studio videos**: UBIAI (a document labeling tool) has a [YouTube tutorial on fine-tuning LayoutLM](https://www.youtube.com/watch?v=_7PlXrFX7VM) with their interface ([Fine-tuning LayoutLM for Document Information Extraction - Ubiai](https://ubiai.tools/fine-tuning-layoutlm-for-document-information-extraction/#:~:text=Ubiai%20ubiai,from%20various%20types%20of%20documents)). Similarly, the Label Studio team often shares how to use their tool for OCR tasks ([LayoutLMv3: A Beginner's Guide to Creating and Training a Custom ...](https://www.youtube.com/watch?v=bBwDTY38X58#:~:text=LayoutLMv3%3A%20A%20Beginner%27s%20Guide%20to,NER)).
+        
+    - **Haystack documentation**: Check out Haystack’s tutorial on [building an extractive QA pipeline](https://haystack.deepset.ai/tutorials/01_basic_qapipeline) and the Milvus blog Q&A we cited about structured data extraction ([How do I use Haystack to extract structured data from documents?](https://milvus.io/ai-quick-reference/how-do-i-use-haystack-to-extract-structured-data-from-documents#:~:text=For%20example%2C%20if%20you%E2%80%99re%20extracting,like%20switching)) ([How do I use Haystack to extract structured data from documents?](https://milvus.io/ai-quick-reference/how-do-i-use-haystack-to-extract-structured-data-from-documents#:~:text=Customization%20is%20key%20for%20accurate,datasets%20for%20analysis%2C%20reporting%2C%20or)) – it explains how to use Haystack nodes for things like QA and entity extraction in a pipeline.
+        
+    - **DocQuery**: The GitHub README of Impira’s DocQuery ([GitHub - impira/docquery: An easy way to extract information from documents](https://github.com/impira/docquery#:~:text=DocQuery%20is%20a%20library%20and,by%20the%20team%20at%20Impira)) ([GitHub - impira/docquery: An easy way to extract information from documents](https://github.com/impira/docquery#:~:text=,750px.png%20with)) shows example commands and how to install and use it. It’s a quick way to test your documents with a QA approach.
+        
+    - **PaddleOCR PP-Structure**: The PaddleOCR documentation ([Overview - PaddleOCR Documentation](https://paddlepaddle.github.io/PaddleOCR/main/en/ppstructure/overview.html#:~:text=The%20pipeline%20of%20PP,information%20extraction%20can%20be%20completed)) ([Overview - PaddleOCR Documentation](https://paddlepaddle.github.io/PaddleOCR/main/en/ppstructure/overview.html#:~:text=,layout%20as%20the%20original%20image)) and their technical report give insight into how they handle layout and key info extraction. They also provide scripts and examples in their repo for table extraction and SER (key info) model usage.
+        
+
+Using the above pipeline, a junior ML engineer can start from OCR and end with an Excel or CSV of extracted fields. Each step has open-source tools and community tutorials available, minimizing the need to develop everything from scratch. By following best practices in OCR preprocessing ([Improving the quality of the output | tessdoc](https://tesseract-ocr.github.io/tessdoc/ImproveQuality.html#:~:text=Rescaling)) and leveraging pre-trained document AI models, you can achieve high accuracy even with limited training samples. The final output can be easily exported to spreadsheets or any database for downstream use. Good luck with your implementation!
+
+**Sources:**
+
+- Tesseract OCR Documentation – _Improving the quality of the output_ ([Improving the quality of the output | tessdoc](https://tesseract-ocr.github.io/tessdoc/ImproveQuality.html#:~:text=Rescaling)) ([Improving the quality of the output | tessdoc](https://tesseract-ocr.github.io/tessdoc/ImproveQuality.html#:~:text=Image%3A%20binarisation)) (on image preprocessing and optimal DPI for OCR)
+    
+- Docsumo Blog – _How to extract data using Tesseract OCR?_ ([How to extract data using Tesseract OCR?](https://www.docsumo.com/blog/tesseract-ocr#:~:text=1,column%20text%2C%20and%20unconventional%20arrangements)) ([How to extract data using Tesseract OCR?](https://www.docsumo.com/blog/tesseract-ocr#:~:text=2,less%20common%20languages%20and%20fonts)) (on Tesseract limitations with scanned & complex layouts)
+    
+- PyImageSearch – _Improving OCR Results with Basic Image Processing_ ([Improving OCR Results with Basic Image Processing - PyImageSearch](https://pyimagesearch.com/2021/11/22/improving-ocr-results-with-basic-image-processing/#:~:text=1,applying%20our%20image%20processing%20routine)) (on using thresholding and morphology to boost OCR accuracy)
+    
+- Hugging Face Medium – _LayoutLM for Document AI_ ([[Tutorial] How to Train LayoutLM on a Custom Dataset with Hugging Face | by Matt Noe | Medium](https://medium.com/@matt.noe/tutorial-how-to-train-layoutlm-on-a-custom-dataset-with-hugging-face-cda58c96571c#:~:text=LayoutLMv3%20is%20a%20pre,various%20document%20AI%20tasks%2C%20including)) (overview of LayoutLMv3 and its multimodal capabilities)
+    
+- Phil Schmid’s Blog – _Fine-tuning LayoutLM_ ([Fine-tuning LayoutLM for document-understanding using Keras & Hugging Face Transformers](https://www.philschmid.de/fine-tuning-layoutlm-keras#:~:text=LayoutLM%20is%20a%20document%20image,purposes%20compared%20to%20other%20LayoutLMv2%2FLayoutLMv3) ) (notes on LayoutLM v1 license vs v2/v3, using FUNSD dataset)
+    
+- Phil Schmid’s Blog – _Fine-tuning Donut for document parsing_ ([Document AI: Fine-tuning Donut for document-parsing using Hugging Face Transformers](https://www.philschmid.de/fine-tuning-donut#:~:text=In%20this%20blog%2C%20you%20will,model%20versioning%20and%20experiment%20tracking)) ([Document AI: Fine-tuning Donut for document-parsing using Hugging Face Transformers](https://www.philschmid.de/fine-tuning-donut#:~:text=Document%20Understanding%20Transformer%20,generates%20a%20sequence%20of%20tokens)) (introducing Donut model, its OCR-free approach and license)
+    
+- Shiva Rama Medium – _LayoutLMv3 from zero to hero (Part 2)_ ([LayoutLMv3: from zero to hero — Part 2 | by Shiva Rama | Medium](https://medium.com/@shivarama/layoutlmv3-from-zero-to-hero-part-2-d2659eaa7dee#:~:text=,images)) ([LayoutLMv3: from zero to hero — Part 2 | by Shiva Rama | Medium](https://medium.com/@shivarama/layoutlmv3-from-zero-to-hero-part-2-d2659eaa7dee#:~:text=%2A%20Create%20text%2Bbounding)) (guide to annotating scanned PDFs with Label Studio and preparing training data with Tesseract HOCR)
+    
+- Milvus (Zilliz) Blog – _Using Haystack to extract structured data_ ([How do I use Haystack to extract structured data from documents?](https://milvus.io/ai-quick-reference/how-do-i-use-haystack-to-extract-structured-data-from-documents#:~:text=For%20example%2C%20if%20you%E2%80%99re%20extracting,like%20switching)) ([How do I use Haystack to extract structured data from documents?](https://milvus.io/ai-quick-reference/how-do-i-use-haystack-to-extract-structured-data-from-documents#:~:text=Customization%20is%20key%20for%20accurate,datasets%20for%20analysis%2C%20reporting%2C%20or)) (describing a QA-based pipeline and fine-tuning/validation in Haystack)
+    
+- PaddleOCR PP-Structure Documentation ([Overview - PaddleOCR Documentation](https://paddlepaddle.github.io/PaddleOCR/main/en/ppstructure/overview.html#:~:text=,engine%20is%20first%20used%20to)) ([Overview - PaddleOCR Documentation](https://paddlepaddle.github.io/PaddleOCR/main/en/ppstructure/overview.html#:~:text=,extracting%20the%20required%20key%20information)) (pipeline for layout analysis and key info extraction) and ([Overview - PaddleOCR Documentation](https://paddlepaddle.github.io/PaddleOCR/main/en/ppstructure/overview.html#:~:text=,layout%20as%20the%20original%20image)) (features like Excel output and SER for key info)
+    
+- Impira DocQuery GitHub ([GitHub - impira/docquery: An easy way to extract information from documents](https://github.com/impira/docquery#:~:text=DocQuery%20is%20a%20library%20and,by%20the%20team%20at%20Impira)) ([GitHub - impira/docquery: An easy way to extract information from documents](https://github.com/impira/docquery#:~:text=,750px.png%20with)) (DocQuery CLI usage for asking questions on documents)
+    
+- Hugging Face Blog – _Accelerating Document AI_ ([blog/document-ai.md at main · huggingface/blog · GitHub](https://github.com/huggingface/blog/blob/main/document-ai.md#:~:text=That%27s%20where%20models%20like%20LayoutLM,models%20are%20changing%20how%20practitioners)) (impact of layout+text models on document tasks accuracy)
+    
+- Restack (Reddit summary) – _Hugging Face AutoTrain_ ([Resources For Fine-Tuning Ai Vision Models | Restackio](https://www.restack.io/p/vision-fine-tuning-answer-reddit-resources-cat-ai#:~:text=Hugging%20Face%27s%20AutoTrain%20feature%20allows,Key%20features%20include)) (AutoTrain for automated model training with minimal coding)

@@ -1,0 +1,25 @@
+<p>---</p>
+<p>tags: environment_variables, root_user</p>
+<p>---</p>
+<h4>Checking if root user</h4>
+<div class="code-wrapper">
+    <button class="copy-btn">Copy Code</button>
+    <pre><code class="language-run-shell">if [[ $UID -ne 0 ]]; then 
+  echo Non root user. Please run as root. 
+else 
+  echo Root user 
+fi</code></pre>
+</div>
+<h4>Environment variables</h4>
+<p>e.i. ` HOME PWD USER UID SHELL`</p>
+<p>`$0` is shortcut to  `$SHELL`</p>
+<div class="code-wrapper">
+    <button class="copy-btn">Copy Code</button>
+    <pre><code class="language-run-shell">echo $0 
+echo $SHELL</code></pre>
+</div>
+<div class="code-wrapper">
+    <button class="copy-btn">Copy Code</button>
+    <pre><code class="language-run-shell">var=12345678901234567890$
+echo ${#var}</code></pre>
+</div>
