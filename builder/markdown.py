@@ -16,7 +16,6 @@ from xml.etree import ElementTree as etree
 import markdown
 from markdown.extensions import Extension
 from markdown.inlinepatterns import InlineProcessor
-from markdown.preprocessors import Preprocessor
 from markdown.postprocessors import Postprocessor
 
 from .assets import normalise_image_src, resolve_asset_reference
@@ -40,7 +39,8 @@ class ObsidianImageProcessor(InlineProcessor):
         src_with_params = m.group(1)
         
         # Handle Obsidian-style size parameters: image.png|600
-        # Split by | to separate filename from size/parameters
+        # The size parameter is stripped as it's not used in the HTML output.
+        # Obsidian uses it for display sizing, but our CSS handles image sizing.
         if '|' in src_with_params:
             src = src_with_params.split('|')[0]
         else:
@@ -150,25 +150,29 @@ class CodeBlockWrapperPostprocessor(Postprocessor):
     """
     
     def run(self, text):
-        # Find all <pre><code> blocks and wrap them
-        pattern = r'<pre><code class="language-([^"]*)">(.*?)</code></pre>'
+        # Wrap code blocks with copy button wrapper.
+        # Process in a single pass to avoid double-wrapping.
+        # Pattern matches both language-specified and plain code blocks.
         
         def replace_code_block(match):
-            lang = match.group(1)
-            code = match.group(2)
-            return f'''<div class="code-wrapper">
+            # Check if this is a language-specified block
+            if match.group(1):
+                lang = match.group(1)
+                code = match.group(2)
+                return f'''<div class="code-wrapper">
     <button class="copy-btn">Copy Code</button>
     <pre><code class="language-{lang}">{code}</code></pre>
 </div>'''
-        
-        # Handle code blocks without language specification
-        text = re.sub(r'<pre><code>(.*?)</code></pre>', 
-                     lambda m: f'''<div class="code-wrapper">
+            else:
+                # Plain code block without language
+                code = match.group(3)
+                return f'''<div class="code-wrapper">
     <button class="copy-btn">Copy Code</button>
-    <pre><code>{m.group(1)}</code></pre>
-</div>''', text, flags=re.DOTALL)
+    <pre><code>{code}</code></pre>
+</div>'''
         
-        # Then handle code blocks with language
+        # Single regex to match both patterns
+        pattern = r'<pre><code class="language-([^"]*)">(.*?)</code></pre>|<pre><code>(.*?)</code></pre>'
         text = re.sub(pattern, replace_code_block, text, flags=re.DOTALL)
         
         return text
