@@ -37,7 +37,14 @@ class ObsidianImageProcessor(InlineProcessor):
         self.source_file = source_file
     
     def handleMatch(self, m, data):
-        src = m.group(1)
+        src_with_params = m.group(1)
+        
+        # Handle Obsidian-style size parameters: image.png|600
+        # Split by | to separate filename from size/parameters
+        if '|' in src_with_params:
+            src = src_with_params.split('|')[0]
+        else:
+            src = src_with_params
         
         # Resolve the asset to get the actual file path
         resolved_path = resolve_asset_reference(self.ctx, self.source_file.parent, src)
