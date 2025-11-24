@@ -80,3 +80,4 @@ Event Firing: This action does fire a popstate event, which the router's onPopSt
 Dispatch: This listener also just calls onLocationChange().
 
 Resolution & Rendering: From here, the flow is identical to steps 7-10 above. The router resolves the "new" (but old) path, finds the matching view, and re-renders the content.
+npm install @supabase/supabase-js

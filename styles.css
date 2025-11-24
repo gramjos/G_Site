@@ -500,6 +500,15 @@ a:focus-visible {
     color: #abb2bf;
 }
 
+.inline-code {
+    background-color: #f3f4f6;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+    font-size: 0.9em;
+    color: #1f2933; /* Ensure text is readable */
+}
+
 .copy-btn {
     position: absolute;
     top: 10px;

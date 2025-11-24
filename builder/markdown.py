@@ -10,10 +10,44 @@ output for the SPA to consume.
 
 import re
 from pathlib import Path
-from typing import List
+from typing import List, Tuple, Dict
 from .assets import normalise_image_src
 from .models import BuildContext
 from .utils import escape_html, slugify
+
+
+def parse_bold(text: str) -> str:
+    """
+    Parses bold text enclosed in double underscores.
+    Example: __bold__ -> <strong>bold</strong>
+    """
+    return re.sub(r"__(.+?)__", r"<strong>\1</strong>", text)
+
+
+def parse_italic(text: str) -> str:
+    """
+    Parses italic text enclosed in single underscores.
+    Example: _italic_ -> <em>italic</em>
+    """
+    return re.sub(r"_(.+?)_", r"<em>\1</em>", text)
+
+
+def parse_inline_code(text: str, escape_content: bool = False) -> Tuple[str, Dict[str, str]]:
+    """
+    Parses inline code enclosed in backticks.
+    Returns the text with placeholders and a dictionary of placeholders to code HTML.
+    """
+    stash = {}
+    def repl(match):
+        # Use a placeholder without underscores to avoid interference with bold/italic parsing
+        key = f"HTMCODEBLOCK{len(stash)}"
+        content = match.group(1)
+        if escape_content:
+            content = escape_html(content)
+        stash[key] = f'<code class="inline-code">{content}</code>'
+        return key
+
+    return re.sub(r"`([^`\n]+)`", repl, text), stash
 
 
 def render_markdown(ctx: BuildContext, source_file: Path, markdown_text: str) -> str:
@@ -77,6 +111,18 @@ def render_markdown(ctx: BuildContext, source_file: Path, markdown_text: str) ->
         if heading_match:
             level = len(heading_match.group(1))
             content = escape_html(heading_match.group(2).strip())
+            
+            # Parse inline code first to protect it
+            content, stash = parse_inline_code(content, escape_content=False)
+            
+            # Parse formatting
+            content = parse_bold(content)
+            content = parse_italic(content)
+            
+            # Restore code
+            for key, val in stash.items():
+                content = content.replace(key, val)
+                
             html_lines.append(f"<h{level}>{content}</h{level}>")
             continue
 
@@ -169,6 +215,18 @@ def render_markdown(ctx: BuildContext, source_file: Path, markdown_text: str) ->
 
         # Is Paragraph
         # catch all is paragraph
+        
+        # Parse inline code first to protect it
+        line, stash = parse_inline_code(line, escape_content=True)
+        
+        # Parse formatting
+        line = parse_bold(line)
+        line = parse_italic(line)
+        
+        # Restore code
+        for key, val in stash.items():
+            line = line.replace(key, val)
+            
         html_lines.append(f"<p>{line}</p>")
 
     return "\n".join(html_lines)

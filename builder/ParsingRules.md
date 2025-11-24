@@ -1,2 +1,16 @@
 ## Parsing Rules
-- No images in headings
+- headings
+- Images ![[image_asset_path]]
+    - No images in headings
+    - support for Excalidraw style image detected file extension within the image_asset_path
+- "code font" specified by enclosing text in back ticks (`code`)
+    - Can occur in a heading or normal paragraph
+    - Does not span two lines
+    - Style: light grey highlight with mono type face
+- Italics: enclosing text in a single underscore `_italic_`
+    - Spans a single line
+- Bold: enclosing text in double underscores `__bold__`
+    - Spans a single line
+- code snippet/block
+    - copy to system clipbord button
+- internal links (wiki-style)
