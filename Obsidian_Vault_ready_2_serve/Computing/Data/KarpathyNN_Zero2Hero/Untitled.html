@@ -1,10 +1,10 @@
 <p>YT Video: https://www.youtube.com/watch?v=VMj-3S1tku0</p>
-<h4>`micrograd` is an automatic gradient engine(back prop)</h4>
-<p>_Back Propagation_ efficient evaluate the a gradient of a loss function with respect to the weight of a Neural Net (NN). Therefore, one can iteratively tune the weights to improve accuracy.</p>
-<h4>`micrograd` allows one to build mathematical expressions</h4>
-<p>Aside, Rectified Linear Unit `.relu()`. Informally described as _keep or squash to zero_. Can otherwise be stated as, `relu = max(0, x)`, and with the latex expression.</p>
+<h4><code class="inline-code">micrograd</code> is an automatic gradient engine(back prop)</h4>
+<p><em>Back Propagation</em> efficient evaluate the a gradient of a loss function with respect to the weight of a Neural Net (NN). Therefore, one can iteratively tune the weights to improve accuracy.</p>
+<h4><code class="inline-code">micrograd</code> allows one to build mathematical expressions</h4>
+<p>Aside, Rectified Linear Unit <code class="inline-code">.relu()</code>. Informally described as <em>keep or squash to zero</em>. Can otherwise be stated as, <code class="inline-code">relu = max(0, x)</code>, and with the latex expression.</p>
 <p>$$\text{relu }= \begin{cases} 0 & \text{if } x < 0 \\ x & \text{if } x \ge 0 \end{cases}$$</p>
-<p>__Jargon__: "Forward pass," meaning the series of expression calculated before the `.backward()` call (initialize back prop at node `g`)</p>
+<p><strong>Jargon</strong>: "Forward pass," meaning the series of expression calculated before the <code class="inline-code">.backward()</code> call (initialize back prop at node <code class="inline-code">g</code>)</p>
 <div class="code-wrapper">
     <button class="copy-btn">Copy Code</button>
     <pre><code class="language-python">from micrograd.engine import Value
@@ -26,10 +26,10 @@ g.backward()
 print(f&#39;{a.grad:.4f}&#39;) # prints 138.8338, i.e. the numerical value of dg/da
 print(f&#39;{b.grad:.4f}&#39;) # prints 645.5773, i.e. the numerical value of dg/db</code></pre>
 </div>
-<p>At node `g`, recursively, go through the expression graph to apply the chain rule from calculus. Every edge between nodes has a gradient, `a.grad`. `a.grad` how `a` is affecting `g`.</p>
+<p>At node <code class="inline-code">g</code>, recursively, go through the expression graph to apply the chain rule from calculus. Every edge between nodes has a gradient, <code class="inline-code">a.grad</code>. <code class="inline-code">a.grad</code> how <code class="inline-code">a</code> is affecting <code class="inline-code">g</code>.</p>
 <img src="hypothesis_node_graph_backprop.excalidraw|center" alt="" loading="lazy" decoding="async" />
 <h4>Interpretation</h4>
-<p>_How does `g` respond when `a` is tweaked?_</p>
-<p>If we make `a` slightly larger then because `138.8338` is positive `g` will grow and the slope of that growth is `138.8338`.</p>
+<p><em>How does <code class="inline-code">g</code> respond when <code class="inline-code">a</code> is tweaked?</em></p>
+<p>If we make <code class="inline-code">a</code> slightly larger then because <code class="inline-code">138.8338</code> is positive <code class="inline-code">g</code> will grow and the slope of that growth is <code class="inline-code">138.8338</code>.</p>
 <h2>Zooming Out</h2>
-<p>`micrograd` is a scalar value AutoGrad Engine. This is a pedagogical and in practice these scalars would n-dimensional tensors</p>
+<p><code class="inline-code">micrograd</code> is a scalar value AutoGrad Engine. This is a pedagogical and in practice these scalars would n-dimensional tensors</p>

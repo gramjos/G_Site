@@ -1,12 +1,12 @@
 <p>---</p>
 <p>tags:</p>
-<p>- coordinate_reference_system</p>
+<p>- coordinate<em>reference</em>system</p>
 <p>- datum</p>
 <p>- crs</p>
 <p>- map_projections</p>
 <p>- geodesy</p>
 <p>- coordinates</p>
-<p>- projected_coordinate_system</p>
+<p>- projected<em>coordinate</em>system</p>
 <p>- gis</p>
 <p>---</p>
 <h2>What’s the difference between a spatial reference and a coordinate system?</h2>
@@ -15,7 +15,7 @@
 <p>A **geographic coordinate system (GCS)** is a reference framework that defines the locations of features on a model of the earth. It’s shaped like a globe—spherical. Its units are angular, usually degrees.</p>
 <p>A **projected coordinate system (PCS)** is flat. It contains a GCS, but it converts that GCS into a flat surface, using math (the projection algorithm) and other parameters. Its units are linear, most commonly in meters</p>
 <h2>Datum</h2>
-<p>_The spheroid origin_</p>
+<p><em>The spheroid origin</em></p>
 <p>A datum is one parameter in a geographic coordinate system (GCS). While a spheroid approximates the shape of the Earth. A datum defines the position of the spheroid relative to the center of the Earth. Datums provide the origin for latitude</p>
 <p>The **datum** is the part of the GCS that determines which model (spheroid) is used to represent the earth’s surface and where it is positioned relative to the surface. Since the earth’s surface is not perfectly smooth or round, there are many different datums designed for different parts of the world.</p>
 <p>A **GCS** is the full definition of how to tie coordinate values to real locations on the earth. In addition to a datum, a GCS includes a prime meridian (which specifies the location of 0° longitude), and an angular unit (often degrees)</p>
@@ -26,7 +26,7 @@
 <p>3. Measurement error</p>
 <p>4. Physical locations on the Earth change through time.</p>
 <p>Data is geographically referenced, meaning that the pixels (raster) or the points (vector) are the building block for the spatial data model. This is measured in respect to the universally recognized coordinate reference system (CRS). The CRS uses ellipsoid, datum and map projection.</p>
-<p>**Coordinates** are sets of numbers (usually X,Y) that unambiguously define locations.  Coordinates are _only_ unique for:</p>
+<p>**Coordinates** are sets of numbers (usually X,Y) that unambiguously define locations.  Coordinates are <em>only</em> unique for:</p>
 <p>- a specified measurement,</p>
 <p>- calculation assumption,</p>
 <p>- and time range.</p>

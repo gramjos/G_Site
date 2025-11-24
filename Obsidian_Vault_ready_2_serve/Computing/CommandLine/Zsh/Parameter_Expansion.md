@@ -21,7 +21,7 @@ task, remove the leading period
 - `${VAR:+value}`: Use `value` if `VAR` is set.
 - `${VAR:?message}`: Display an error message if `VAR` is unset or null.
 ##### Indirection
-`${!VAR}`: Use the value of the variable whose name is the value of `VAR`
+`${!VAR}`: Use the value of the variable _whose_ name is the value of `VAR`
 ```zsh
 ref="foo"
 foo="bar"

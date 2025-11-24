@@ -1,16 +1,16 @@
 <p>---</p>
 <p>tags: path, builtins</p>
 <p>---</p>
-<h2>Builtins Commands Versus Commands located on `PATH`</h2>
-<p>_Most_ commands come from a program on the file system. In contrast, some commands, out of necessity need to be baked into the shell's program file (making it a **builtin**) because the command affects the current shell. For this reason and efficiencies (a bloated shell file) commands are either placed in the builtins or on `PATH`</p>
+<h2>Builtins Commands Versus Commands located on <code class="inline-code">PATH</code></h2>
+<p><em>Most</em> commands come from a program on the file system. In contrast, some commands, out of necessity need to be baked into the shell's program file (making it a **builtin**) because the command affects the current shell. For this reason and efficiencies (a bloated shell file) commands are either placed in the builtins or on <code class="inline-code">PATH</code></p>
 <h4>Shell Builtins</h4>
 <p>- These commands do not start separate process.</p>
-<p>`$ type pwd`</p>
-<p>`pwd is a shell builtin`</p>
-<p>Same information can be found by using the `which` command</p>
+<p><code class="inline-code">$ type pwd</code></p>
+<p><code class="inline-code">pwd is a shell builtin</code></p>
+<p>Same information can be found by using the <code class="inline-code">which</code> command</p>
 <h4>File System Commands</h4>
 <p>- located on the **PATH** variable</p>
-<h4>Builtin example `alias`</h4>
-<p>- they are created using shell builtins because `alias` stores an `alias` the currently running shell process, so t must be a builtin</p>
-<p>`$ type alias`</p>
-<p>`alias is a shell builtin`</p>
+<h4>Builtin example <code class="inline-code">alias</code></h4>
+<p>- they are created using shell builtins because <code class="inline-code">alias</code> stores an <code class="inline-code">alias</code> the currently running shell process, so t must be a builtin</p>
+<p><code class="inline-code">$ type alias</code></p>
+<p><code class="inline-code">alias is a shell builtin</code></p>

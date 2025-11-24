@@ -3,23 +3,23 @@
 <p>---</p>
 <h5>Removing character (singular)</h5>
 <p>given the assignment,</p>
-<p>`$ x=./screens/location_detail/text_section.dart`</p>
+<p><code class="inline-code">$ x=./screens/location_detail/text_section.dart</code></p>
 <p>task, remove the leading period</p>
-<p>`$ echo ${x#./}`</p>
-<p>`screens/location_detail/text_section.dart`</p>
+<p><code class="inline-code">$ echo ${x#./}</code></p>
+<p><code class="inline-code">screens/location_detail/text_section.dart</code></p>
 <h3>**General Rules**</h3>
 <h5>Replacing Sub-strings</h5>
-<p>- `${VAR/pattern/replacement}`: Replaces the first occurrence of `pattern` in `VAR` with `replacement`.</p>
-<p>- `${VAR//pattern/replacement}`: Replaces all occurrences of `pattern` in `VAR` with `replacement`.</p>
-<p>- `${VAR/#pattern/replacement}`: Replaces `pattern` at the beginning of `VAR` with `replacement`.</p>
-<p>- `${VAR/%pattern/replacement}`: Replaces `pattern` at the end of `VAR` with `replacement`.</p>
+<p>- <code class="inline-code">${VAR/pattern/replacement}</code>: Replaces the first occurrence of <code class="inline-code">pattern</code> in <code class="inline-code">VAR</code> with <code class="inline-code">replacement</code>.</p>
+<p>- <code class="inline-code">${VAR//pattern/replacement}</code>: Replaces all occurrences of <code class="inline-code">pattern</code> in <code class="inline-code">VAR</code> with <code class="inline-code">replacement</code>.</p>
+<p>- <code class="inline-code">${VAR/#pattern/replacement}</code>: Replaces <code class="inline-code">pattern</code> at the beginning of <code class="inline-code">VAR</code> with <code class="inline-code">replacement</code>.</p>
+<p>- <code class="inline-code">${VAR/%pattern/replacement}</code>: Replaces <code class="inline-code">pattern</code> at the end of <code class="inline-code">VAR</code> with <code class="inline-code">replacement</code>.</p>
 <h5>Default Values</h5>
-<p>- `${VAR:-default}`: Use `default` if `VAR` is unset or null.</p>
-<p>- `${VAR:=default}`: Assign `default` to `VAR` if `VAR` is unset or null.</p>
-<p>- `${VAR:+value}`: Use `value` if `VAR` is set.</p>
-<p>- `${VAR:?message}`: Display an error message if `VAR` is unset or null.</p>
+<p>- <code class="inline-code">${VAR:-default}</code>: Use <code class="inline-code">default</code> if <code class="inline-code">VAR</code> is unset or null.</p>
+<p>- <code class="inline-code">${VAR:=default}</code>: Assign <code class="inline-code">default</code> to <code class="inline-code">VAR</code> if <code class="inline-code">VAR</code> is unset or null.</p>
+<p>- <code class="inline-code">${VAR:+value}</code>: Use <code class="inline-code">value</code> if <code class="inline-code">VAR</code> is set.</p>
+<p>- <code class="inline-code">${VAR:?message}</code>: Display an error message if <code class="inline-code">VAR</code> is unset or null.</p>
 <h5>Indirection</h5>
-<p>`${!VAR}`: Use the value of the variable whose name is the value of `VAR`</p>
+<p><code class="inline-code">${!VAR}</code>: Use the value of the variable <em>whose</em> name is the value of <code class="inline-code">VAR</code></p>
 <div class="code-wrapper">
     <button class="copy-btn">Copy Code</button>
     <pre><code class="language-zsh">ref=&quot;foo&quot;

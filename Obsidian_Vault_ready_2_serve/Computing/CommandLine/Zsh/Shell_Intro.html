@@ -1,5 +1,5 @@
 <p>---</p>
-<p>tags: [shell, zsh, processes, debug, file_descriptors, redirect_standard_in, redirect_standard_out, exit_code, path, env_path]</p>
+<p>tags: [shell, zsh, processes, debug, file<em>descriptors, redirect</em>standard<em>in, redirect</em>standard<em>out, exit</em>code, path, env_path]</p>
 <p>---</p>
 <p>How to determine the current shell?</p>
 <p>Below is a Zsh interaction</p>
@@ -8,14 +8,14 @@
     <pre><code class="language-shell">echo $0
 -zsh</code></pre>
 </div>
-<p>`$0` holds current shell</p>
+<p><code class="inline-code">$0</code> holds current shell</p>
 <div class="code-wrapper">
     <button class="copy-btn">Copy Code</button>
     <pre><code class="language-shell">$ ps -p $$
   PID TTY           TIME CMD
 83328 ttys001    0:01.66 -zsh</code></pre>
 </div>
-<p>`$$` represents the current __PID__ which is the current shell</p>
+<p><code class="inline-code">$$</code> represents the current <strong>PID</strong> which is the current shell</p>
 <div class="code-wrapper">
     <button class="copy-btn">Copy Code</button>
     <pre><code class="language-shell">$ echo $SHELL
@@ -36,29 +36,29 @@ $ exit
 exit</code></pre>
 </div>
 <p>###### Exit code of previous command</p>
-<p>`$ echo $?`</p>
+<p><code class="inline-code">$ echo $?</code></p>
 <p>###### Shell history expansion character</p>
-<p>`$ !_`</p>
+<p><code class="inline-code">$ !_</code></p>
 <p>where the underscore is the starting of command in the recent history. Very similar to the reverse search of ctrl-r ('bck-i-search:')</p>
 <p>###### To Debug a script line by line</p>
 <p>At the top of file after the shebang line</p>
-<p>`set -xv`</p>
-<p>The above will output what line the script is on and show all errors (output) associated with each command for each line of the script. `-v` is for verbose.</p>
-<p>`set -e`</p>
+<p><code class="inline-code">set -xv</code></p>
+<p>The above will output what line the script is on and show all errors (output) associated with each command for each line of the script. <code class="inline-code">-v</code> is for verbose.</p>
+<p><code class="inline-code">set -e</code></p>
 <p>will exit on first error.</p>
 <h4>Standard Error/Output Redirection</h4>
 <p>###### File Descriptor 1 is for standard output</p>
 <p>###### File Descriptor 2 is for standard error</p>
-<p>###### `&` is for both unless prefixed by 1 or 2</p>
+<p>###### <code class="inline-code">&amp;</code> is for both unless prefixed by 1 or 2</p>
 <p>**All the errors from the 'command' will be written to the file**</p>
-<p>`$ command 2> error.txt`</p>
+<p><code class="inline-code">$ command 2&gt; error.txt</code></p>
 <p>**Both standard error and standard output written to file**</p>
-<p>`$ command &> output.txt`</p>
+<p><code class="inline-code">$ command &amp;&gt; output.txt</code></p>
 <p>**Redirecting standard error to the standard output stream**</p>
-<p>`$ command > file.txt 2>&1`</p>
+<p><code class="inline-code">$ command &gt; file.txt 2&gt;&amp;1</code></p>
 <h5>Writing Error Messages</h5>
 <p>Writing to the error stream (file descriptor 2) explicitly,</p>
-<p>`$ echo 'Default API call used. ${STATUS}' 1>&2`</p>
+<p><code class="inline-code">$ echo &#39;Default API call used. ${STATUS}&#39; 1&gt;&amp;2</code></p>
 <p>The above command redirects standard output to standard error.</p>
 <p>Aside, error message written to a log should begin the scripts name for clarity.</p>
 <div class="code-wrapper">
@@ -66,15 +66,15 @@ exit</code></pre>
     <pre><code class="language-shell">echo `basename $0`</code></pre>
 </div>
 <h4>Path Variable</h4>
-<p>The environment variable `$PATH` is a colon separated list of directories. This list is searched every time a command is ran. <a href="/notes/computing/commandline/zsh/pipeline-example">Pipeline_example</a> works with one of the common directories `/bin/`</p>
+<p>The environment variable <code class="inline-code">$PATH</code> is a colon separated list of directories. This list is searched every time a command is ran. <a href="/notes/computing/commandline/zsh/pipeline-example">Pipeline_example</a> works with one of the common directories <code class="inline-code">/bin/</code></p>
 <p><a href="/notes/computing/data/zacmwilson-6wk/day1">Computing/Data/ZacMWilson_6wk/Day1</a></p>
 <h5>Previous Command Substitution</h5>
-<p>Replace the `x` for `y` from the previous command and run it. Replaces the first occurrence.</p>
+<p>Replace the <code class="inline-code">x</code> for <code class="inline-code">y</code> from the previous command and run it. Replaces the first occurrence.</p>
 <div class="code-wrapper">
     <button class="copy-btn">Copy Code</button>
     <pre><code class="language-zsh">^x^y</code></pre>
 </div>
-<p>Need to replace every occurrence in the previous command? Use the `Global` modifier.</p>
+<p>Need to replace every occurrence in the previous command? Use the <code class="inline-code">Global</code> modifier.</p>
 <div class="code-wrapper">
     <button class="copy-btn">Copy Code</button>
     <pre><code class="language-zsh">^x^y:G</code></pre>

@@ -1,13 +1,13 @@
 <p>---</p>
-<p>tags: [zsh, shell, builtins, history_search, history_previous_command, alias]</p>
+<p>tags: [zsh, shell, builtins, history<em>search, history</em>previous_command, alias]</p>
 <p>faces: [gram, sam]</p>
 <p>---</p>
 <p>A list of examples using zsh builtins</p>
 <p>Formatting the date command</p>
-<p>`$ date "+Today is %x, and the day numer id %j of year %Y"``</p>
-<p>`Today is 12/10/2023, and the day numer id 344 of year 2023`</p>
-<p>__Problem__: Obsidian only recognizes markdown files. I need to rename a deeply nested dart repository to have the `.md` extension.  `zmv` allows renaming with capture groups. Capture groups are declared with parenthesizes and are accessed with the dollar sign then the index.</p>
-<p>`$ zmv '(*.dart)' '$1.md'`</p>
+<p><code class="inline-code">$ date &quot;+Today is %x, and the day numer id %j of year %Y&quot;</code>`</p>
+<p><code class="inline-code">Today is 12/10/2023, and the day numer id 344 of year 2023</code></p>
+<p><strong>Problem</strong>: Obsidian only recognizes markdown files. I need to rename a deeply nested dart repository to have the <code class="inline-code">.md</code> extension.  <code class="inline-code">zmv</code> allows renaming with capture groups. Capture groups are declared with parenthesizes and are accessed with the dollar sign then the index.</p>
+<p><code class="inline-code">$ zmv &#39;(*.dart)&#39; &#39;$1.md&#39;</code></p>
 <h5>Rerun previous command with substitution</h5>
 <p>Given the erroneous first command then immediately following...</p>
 <div class="code-wrapper">
@@ -25,10 +25,10 @@ Su Mo Tu We Th Fr Sa  
 24 25 26 27 28 29 30  
 31</code></pre>
 </div>
-<h4>Overriding the `alias`</h4>
+<h4>Overriding the <code class="inline-code">alias</code></h4>
 <p>Overriding an alias that is an builtin can be done by calling the binary executable directly.</p>
-<p>`$ /bin/ls ~/Deskop`</p>
-<p>The above snippet calls the _vanilla_ version of the `ls`</p>
+<p><code class="inline-code">$ /bin/ls ~/Deskop</code></p>
+<p>The above snippet calls the <em>vanilla</em> version of the <code class="inline-code">ls</code></p>
 <h4>End Command Option Parsing</h4>
 <p>Use the double hyphen to tell the shell to end the option argument parsing.</p>
 <p>In the below scenario, there are no options this is explicit</p>

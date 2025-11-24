@@ -1,10 +1,10 @@
 <p>---</p>
 <p>tags: zsh, shell, processes, process, pid</p>
 <p>---</p>
-<p>Unix systems run programs in a __process__. A process is a program running in memory (programs come from an executable file). A process keeps track of the state of the program, whether is running or stopped, its `pwd` and its `env` variables. A __PID__ is the _process identifier_. __PID__'s are assigned at program start. The __PID__ is used to get information about the process and control it.  __PID__'s are assigned in numerical ascending order and once the top (highest number) __PID__ number has been used its starts back around with the since finished __PID__'s. A process can start once or more processes (child processes) making the initiating process a now parent process.</p>
+<p>Unix systems run programs in a <strong>process</strong>. A process is a program running in memory (programs come from an executable file). A process keeps track of the state of the program, whether is running or stopped, its <code class="inline-code">pwd</code> and its <code class="inline-code">env</code> variables. A <strong>PID</strong> is the <em>process identifier</em>. <strong>PID</strong>'s are assigned at program start. The <strong>PID</strong> is used to get information about the process and control it.  <strong>PID</strong>'s are assigned in numerical ascending order and once the top (highest number) <strong>PID</strong> number has been used its starts back around with the since finished <strong>PID</strong>'s. A process can start once or more processes (child processes) making the initiating process a now parent process.</p>
 <h5>Inheritance</h5>
 <p>When on processes a new process, like when the main shell process runs a script, many attributes are passed from the parent (main) process to the child (script).</p>
 <h5>Running script starts a new process</h5>
 <p>Once a script is started it is started in its own environment. Separate from its parent and only modify if both the parent and the child set up to communicate.</p>
 <h5>A shell function does not start a new process</h5>
-<p>**But** all pipes start a new process.  Given the example of a function  loop with a pipe in the iterator, variables that are set in the body of the loop will persist outside the scope of the function. _"New pipe, new scope"_ -graham</p>
+<p>**But** all pipes start a new process.  Given the example of a function  loop with a pipe in the iterator, variables that are set in the body of the loop will persist outside the scope of the function. <em>"New pipe, new scope"</em> -graham</p>
